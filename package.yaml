@@ -1,0 +1,105 @@
+name:                TestHaskell
+version:             0.1.0.0
+github:              "Release-Candidate/TestHaskell"
+license:             MIT
+author:              "Roland Csaszar"
+maintainer:          "rec@gmx.at"
+copyright:           "2021 Roland Csaszar"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/Release-Candidate/TestHaskell#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+ghc-options:
+  - -haddock
+  - -Wall
+  - -Wcompat
+  - -fwarn-redundant-constraints
+  - -fwarn-tabs
+  - -fwarn-unused-imports
+  - -fwarn-missing-signatures
+  - -fwarn-name-shadowing
+  - -fwarn-incomplete-patterns
+  - -fwarn-incomplete-uni-patterns
+  - -fwarn-overlapping-patterns
+  - -fwarn-incomplete-record-updates
+  - -fwarn-monomorphism-restriction
+  - -fwarn-orphans
+
+default-extensions:
+  - EmptyCase
+  - FlexibleContexts
+  - FlexibleInstances
+  - InstanceSigs
+  - MultiParamTypeClasses
+  - LambdaCase
+  - MultiWayIf
+  - NamedFieldPuns
+  - TupleSections
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - DerivingStrategies
+  - GeneralizedNewtypeDeriving
+  - StandaloneDeriving
+  - BangPatterns
+  - KindSignatures
+  - TypeOperators
+  - OverloadedStrings
+  - ScopedTypeVariables
+  - TypeApplications
+  - ConstraintKinds
+  - RankNTypes
+
+executables:
+  TestHaskell-exe:
+    main:                Main.hs
+    source-dirs:
+      - app
+      - src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - TestHaskell
+    - cmdargs
+
+tests:
+  TestHaskell-test:
+    main:                Spec.hs
+    source-dirs:
+      - test
+      - src
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - TestHaskell
+    - tasty
+    - tasty-hunit
+    - tasty-golden
+    - tasty-smallcheck
+    - tasty-quickcheck
+    - tasty-leancheck
+    - tasty-program
+    - hpc-codecov
+    - hpc-lcov

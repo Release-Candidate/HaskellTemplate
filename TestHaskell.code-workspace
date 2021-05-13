@@ -1,0 +1,39 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"haskell.hlint.executablePath": "hlint",
+		"ormolu.executablePath": "ormolu",
+		"ghcid.command": "ghcid",
+		"coverage-gutters.coverageReportFileName": "lcov.info",
+		"files.trimFinalNewlines": true,
+		"files.trimTrailingWhitespace": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "ghc",
+				"request": "launch",
+				"name": "haskell(stack)",
+				"internalConsoleOptions": "openOnSessionStart",
+				"workspace": "${workspaceFolder}",
+				"startup": "${workspaceFolder}/test/Spec.hs",
+				"startupFunc": "",
+				"startupArgs": "",
+				"stopOnEntry": false,
+				"mainArgs": "",
+				"ghciPrompt": "H>>= ",
+				"ghciInitialPrompt": "Prelude>",
+				"ghciCmd": "stack ghci --test --no-load --no-build --main-is TARGET",
+				"ghciEnv": {},
+				"logFile": "${workspaceFolder}/.vscode/phoityne.log",
+				"logLevel": "WARNING",
+				"forceInspect": false
+			}
+		]
+	}
+}
