@@ -8,9 +8,10 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
 
+-- | Module containing the program's main entry point.
 module Main where
 
-import Lib (anotherFunc, someFunc)
+import Lib (fibN)
 import System.Console.CmdArgs
   ( Data,
     Typeable,
@@ -24,8 +25,12 @@ import System.Console.CmdArgs
   )
 
 -- | Record to hold the command line arguments, `start` and `end`.
+--
+-- > fun start end = start * end
 data CmdLine = CmdLine
-  { start :: Int,
+  { -- | The start value of the calculation.
+    start :: Int,
+    -- | The end value of the calculation.
     end :: Int
   }
   deriving (Data, Typeable, Show, Eq)
@@ -53,4 +58,4 @@ main =
   do
     let mode = cmdArgsMode cmdLine
     CmdLine {start, end} <- cmdArgsRun mode
-    print [start, end]
+    print (start, end)

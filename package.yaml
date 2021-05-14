@@ -101,5 +101,8 @@ tests:
     - tasty-quickcheck
     - tasty-leancheck
     - tasty-program
+    - tasty-hspec
+    - tasty-expected-failure
+    - hspec-expectations-pretty-diff
     - hpc-codecov
     - hpc-lcov
