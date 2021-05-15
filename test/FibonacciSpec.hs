@@ -23,7 +23,7 @@ import qualified Test.QuickCheck as QC
 spec :: HS.Spec
 spec = do
   HS.describe "Fibonacci" $ do
-    HS.it "Must throw exception: not a Fibonacci series!" $ do
+    HS.it "Must throw exception: not a Fibonacci series!" $
       checkFibonacci [1 .. 100] `HS.shouldThrow` HS.anyException
 
     T.byExample
@@ -56,13 +56,13 @@ spec = do
       ]
       (\(n :: Int) result -> fibZip n `P.shouldBe` result)
 
-    HS.it "Naive version: Check if an+1 = an + an-1, n < 37" $ do
+    HS.it "Naive version: Check if an+1 = an + an-1, n < 37" $
       checkFibonacci $ fibN 38
 
-    HS.it "Better version: Check if an+1 = an + an-1, n < 1000 " $ do
+    HS.it "Better version: Check if an+1 = an + an-1, n < 1000 " $
       checkFibonacci $ fibBetter 1000
 
-    HS.it "Zip version: Check if an+1 = an + an-1, n < 1000 " $ do
+    HS.it "Zip version: Check if an+1 = an + an-1, n < 1000 " $
       checkFibonacci $ fibZip 1000
 
     HS.it "Better version: Check using QuickCheck" $
