@@ -11,7 +11,7 @@
 -- | Module containing the program's main entry point.
 module Main where
 
-import Lib (fibN)
+import qualified Lib
 import System.Console.CmdArgs
   ( Data,
     Typeable,
@@ -23,15 +23,14 @@ import System.Console.CmdArgs
     typ,
     (&=),
   )
+import Text.Printf (printf)
 
--- | Record to hold the command line arguments, `start` and `end`.
---
--- > fun start end = start * end
+-- | Record to hold the command line arguments, `fibonacci` and `goldenRatio`.
 data CmdLine = CmdLine
-  { -- | The start value of the calculation.
-    start :: Int,
-    -- | The end value of the calculation.
-    end :: Int
+  { -- | The number of elements in the Fibonacci list to generate.
+    fibonacci :: Int,
+    -- | The length to apply the golden ratio to.
+    goldenRatio :: Double
   }
   deriving (Data, Typeable, Show, Eq)
 
@@ -40,16 +39,16 @@ cmdLine :: CmdLine
 cmdLine =
   CmdLine
     { -- default value | placeholder | description
-      start = 1 &= typ "START" &= help "Start of the line - START",
-      end = 100 &= typ "END" &= help "End of the Line, END."
+      fibonacci = 50 &= typ "LENGTH" &= help "The number of elements in the list of Fibonacci numbers",
+      goldenRatio = 4 &= typ "LENGTH" &= help "The length to apply the golden ratio to."
     }
-    &= help "Calculate between START and END."
+    &= help "Calculates the Fibonacci numbers and the golden ratio to a given length."
     &= summary "Version 0.0.1"
     &= details
-      [ "Calculates the BLA between the values START and END",
+      [ "Calculates the Fibonacci numbers and the golden ratio to a given length.",
         "",
         "Example:",
-        "\tBLA --start 4 --end 69"
+        "\tTestHaskell --fibonacci=35 --goldenratio=7"
       ]
 
 -- | Main entry point.
@@ -57,5 +56,10 @@ main :: IO ()
 main =
   do
     let mode = cmdArgsMode cmdLine
-    CmdLine {start, end} <- cmdArgsRun mode
-    print (start, end)
+    CmdLine {fibonacci, goldenRatio} <- cmdArgsRun mode
+    printf "\n"
+    printf "The first %v Fibonacci numbers are: \n" fibonacci
+    print $ Lib.fibZip fibonacci
+    printf "\n"
+    printf "The golden ratio to the length of %v is: " goldenRatio
+    print $ goldenRatio * Lib.goldenRatio 8
