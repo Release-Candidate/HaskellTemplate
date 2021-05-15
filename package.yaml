@@ -94,15 +94,14 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - TestHaskell
-    - tasty
-    - tasty-hunit
-    - tasty-golden
-    - tasty-smallcheck
-    - tasty-quickcheck
-    - tasty-leancheck
-    - tasty-program
-    - tasty-hspec
-    - tasty-expected-failure
+    - hspec
+    - hspec-contrib
+    - hspec-smallcheck
+    - hspec-hedgehog
+    - hspec-leancheck
+    - hspec-golden
+    - hspec-tables
+    - QuickCheck
     - hspec-expectations-pretty-diff
     - hpc-codecov
     - hpc-lcov
