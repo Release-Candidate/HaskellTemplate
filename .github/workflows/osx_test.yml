@@ -30,8 +30,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+
       - name: Setup Haskell
-        - uses: haskell/actions/setup@v1
+        uses: haskell/actions/setup@v1
           with:
             ghc-version: '8.10'
             # cabal-version: 'latest'. Omitted, but defaults to 'latest'
@@ -72,7 +73,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Setup Haskell
-        - uses: haskell/actions/setup@v1
+        uses: haskell/actions/setup@v1
           with:
             ghc-version: '8.10'
             # cabal-version: 'latest'. Omitted, but defaults to 'latest'
