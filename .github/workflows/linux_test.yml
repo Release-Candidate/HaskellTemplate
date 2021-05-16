@@ -33,7 +33,7 @@ jobs:
       - name: Cache Stack install
         uses: actions/cache@v2
         with:
-          path: ~/HaskellTemplate/.stack-work/
+          path: ~/.stack/
           key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-Stack-Cache
