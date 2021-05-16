@@ -37,6 +37,11 @@ jobs:
           enable-stack: true
           stack-version: "latest"
 
+      - name: Generate Cache directory
+        shell: cmd
+        run: |
+          mkdir C:\sr\snapshots
+
       - name: Cache Stack install
         uses: actions/cache@v2
         with:
@@ -87,6 +92,11 @@ jobs:
           # cabal-version: 'latest'. Omitted, but defaults to 'latest'
           enable-stack: true
           stack-version: "latest"
+
+      - name: Generate Cache directory
+        shell: cmd
+        run: |
+          mkdir C:\sr\snapshots
 
       - name: Cache Stack install
         uses: actions/cache@v2
