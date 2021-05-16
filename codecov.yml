@@ -1,2 +1,9 @@
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 Roland Csaszar
+#
+# Project:  TestHaskell
+# File:     codecov.yml
+# Date:     16.May.2021
+###############################################################################
 ignore:
     - "./test/"

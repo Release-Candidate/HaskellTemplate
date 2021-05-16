@@ -1,7 +1,15 @@
-site_name: Tzolkin
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 Roland Csaszar
+#
+# Project:  TestHaskell
+# File:     mkdocs.yml
+# Date:     16.May.2021
+###############################################################################
 
-site_url: https://readthedocs.org/projects/Tzolkin/
-#repo_url: https://github.com/Release-Candidate/Tzolkin
+site_name: TestHaskell
+
+site_url: https://readthedocs.org/projects/TestHaskell/
+#repo_url: https://github.com/Release-Candidate/TestHaskell
 #repo_name: GitHub
 #copyright: (C) 2021 Roland Csaszar
 
@@ -11,10 +19,10 @@ site_dir: site
 nav:
   - Home: index.md
   - Project Links:
-      - "Downloads": https://github.com/Release-Candidate/Tzolkin/releases/latest
-      - "GitHub Project Page": "https://github.com/Release-Candidate/Tzolkin"
-      - "Report a Bug or a Feature Request": "https://github.com/Release-Candidate/Tzolkin/issues/new/choose"
-      - "Issue Tracker at GitHub": "https://github.com/Release-Candidate/Tzolkin/issues"
+      - "Downloads": https://github.com/Release-Candidate/TestHaskell/releases/latest
+      - "GitHub Project Page": "https://github.com/Release-Candidate/TestHaskell"
+      - "Report a Bug or a Feature Request": "https://github.com/Release-Candidate/TestHaskell/issues/new/choose"
+      - "Issue Tracker at GitHub": "https://github.com/Release-Candidate/TestHaskell/issues"
   - "Installation & Usage":
       - "Installation & Usage": usage.md
       - License: license.md

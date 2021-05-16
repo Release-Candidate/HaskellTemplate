@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
 #
-# Project:  Tzolkin
+# Project:  TestHaskell
 # File:     osx_test.yml
-#
-################################################################################
-
+# Date:     16.May.2021
+###############################################################################
 name: Tests Mac OS X latest
 
 # Controls when the action will run.
@@ -34,10 +33,10 @@ jobs:
       - name: Setup Haskell
         uses: haskell/actions/setup@v1
         with:
-          ghc-version: '8.10'
+          ghc-version: "8.10"
           # cabal-version: 'latest'. Omitted, but defaults to 'latest'
           enable-stack: true
-          stack-version: 'latest'
+          stack-version: "latest"
 
       - name: Setup Tools
         run: |
@@ -75,10 +74,10 @@ jobs:
       - name: Setup Haskell
         uses: haskell/actions/setup@v1
         with:
-          ghc-version: '8.10'
+          ghc-version: "8.10"
           # cabal-version: 'latest'. Omitted, but defaults to 'latest'
           enable-stack: true
-          stack-version: 'latest'
+          stack-version: "latest"
 
       - name: Setup Tools
         run: |
@@ -88,13 +87,11 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           stack test
-
       # - uses: actions/upload-artifact@v2
       #   if: ${{ always() }}
       #   with:
       #     name: Test Results
       #     path: ./test_results/*.xml
-
       # - name: Publish Unit Test Results
       #   uses: EnricoMi/publish-unit-test-result-action/composite@v1
       #   if: always()

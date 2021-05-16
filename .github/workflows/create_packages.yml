@@ -1,11 +1,10 @@
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
 #
-# Project:  Tzolkin
+# Project:  TestHaskell
 # File:     create_packages.yml
-#
-################################################################################
-
+# Date:     16.May.2021
+###############################################################################
 name: Packages
 
 on:

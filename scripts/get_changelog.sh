@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
 #
-# Project:  TzolkinWaves
+# Project:  TestHaskell
 # File:     get_changelog.sh
-# Date:     07.May.2021
+# Date:     16.May.2021
 ###############################################################################
 # Returns the newest part of the changelog `CHANGELOG.md`.
 # For use with automatic releases.

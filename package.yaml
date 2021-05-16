@@ -1,14 +1,21 @@
-name:                TestHaskell
-version:             0.1.0.0
-github:              "Release-Candidate/TestHaskell"
-license:             MIT
-author:              "Roland Csaszar"
-maintainer:          "rec@gmx.at"
-copyright:           "2021 Roland Csaszar"
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 Roland Csaszar
+#
+# Project:  TestHaskell
+# File:     package.yaml
+# Date:     16.May.2021
+###############################################################################
+name: TestHaskell
+version: 0.1.0.0
+github: "Release-Candidate/TestHaskell"
+license: MIT
+author: "Roland Csaszar"
+maintainer: "rec@gmx.at"
+copyright: "2021 Roland Csaszar"
 
 extra-source-files:
-- README.md
-- ChangeLog.md
+  - README.md
+  - ChangeLog.md
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -17,7 +24,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/Release-Candidate/TestHaskell#readme>
+description: Please see the README on GitHub at <https://github.com/Release-Candidate/TestHaskell#readme>
 
 dependencies:
   - base >= 4.7 && < 5
@@ -71,38 +78,38 @@ default-extensions:
 
 executables:
   TestHaskell-exe:
-    main:                Main.hs
+    main: Main.hs
     source-dirs:
       - app
-#      - src
+    #      - src
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - TestHaskell
-    - cmdargs
+      - TestHaskell
+      - cmdargs
 
 tests:
   TestHaskell-test:
-    main:                Spec.hs
+    main: Spec.hs
     source-dirs:
       - test
-   #   - src
+    #   - src
     ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
     dependencies:
-    - TestHaskell
-    - hspec
-    - hspec-contrib
-    - hspec-smallcheck
-    - hspec-hedgehog
-    - hspec-leancheck
-    - hspec-golden
-    - hspec-tables
-    - QuickCheck
-    - hspec-expectations-pretty-diff
-    - hpc-codecov
-    - hpc-lcov
+      - TestHaskell
+      - hspec
+      - hspec-contrib
+      - hspec-smallcheck
+      - hspec-hedgehog
+      - hspec-leancheck
+      - hspec-golden
+      - hspec-tables
+      - QuickCheck
+      - hspec-expectations-pretty-diff
+      - hpc-codecov
+      - hpc-lcov
