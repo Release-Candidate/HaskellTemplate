@@ -30,6 +30,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Cache Stack install
+        uses: actions/cache@v2
+        with:
+          path: ~/HaskellTemplate/.stack-work/
+          key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-Stack-Cache
+
       - name: Setup Haskell
         uses: haskell/actions/setup@v1
         with:
