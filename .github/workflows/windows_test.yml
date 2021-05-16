@@ -40,7 +40,7 @@ jobs:
       - name: Cache Stack install
         uses: actions/cache@v2
         with:
-          path: ~/HaskellTemplate/.stack-work/
+          path: C:\sr\snapshots
           key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-Stack-Cache
@@ -87,6 +87,14 @@ jobs:
           # cabal-version: 'latest'. Omitted, but defaults to 'latest'
           enable-stack: true
           stack-version: "latest"
+
+      - name: Cache Stack install
+        uses: actions/cache@v2
+        with:
+          path: C:\sr\snapshots
+          key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-Stack-Cache
 
       - name: Setup Tools
         run: |
