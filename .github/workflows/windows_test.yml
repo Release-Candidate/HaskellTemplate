@@ -60,6 +60,12 @@ jobs:
           path_to_write_report: ./coverage/codecov_report.txt
           verbose: true
 
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Coverage Report
+          path: ./coverage.json
+
   tests:
     runs-on: windows-2019
 

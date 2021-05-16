@@ -46,7 +46,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           stack clean
-          stack test --coverage
+          stack test --coverage || true
           TIX=$(stack path --local-hpc-root)/TestHaskell/TestHaskell-test/TestHaskell-test.tix
           MIX="$(stack path --dist-dir)/hpc
           stack exec -- hpc-codecov --verbose -o coverage.json -m "${MIX}" "${TIX}"
@@ -64,6 +64,12 @@ jobs:
           fail_ci_if_error: false
           path_to_write_report: ./coverage/codecov_report.txt
           verbose: true
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Coverage Report
+          path: ./coverage.json
 
   tests:
     runs-on: macos-latest
