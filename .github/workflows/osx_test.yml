@@ -48,7 +48,7 @@ jobs:
           stack clean
           stack test --coverage || true
           TIX=$(stack path --local-hpc-root)/TestHaskell/TestHaskell-test/TestHaskell-test.tix
-          MIX="$(stack path --dist-dir)/hpc
+          MIX=$(stack path --dist-dir)/hpc
           stack exec -- hpc-codecov --verbose -o coverage.json -m "${MIX}" "${TIX}"
 
       - name: Upload coverage to Codecov
