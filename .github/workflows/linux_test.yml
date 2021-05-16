@@ -16,7 +16,7 @@ on:
   pull_request:
     branches: [main]
   workflow_run:
-    workflows: ["Nuget Packages"]
+    workflows: ["Packages"]
     types: [completed]
 
   # Allows you to run this workflow manually from the Actions tab
