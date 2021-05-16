@@ -45,7 +45,7 @@ jobs:
       - name: Cache Stack install
         uses: actions/cache@v2
         with:
-          path: C:/sr/snapshots
+          path: C:/sr/
           key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-Stack-Cache
@@ -109,7 +109,7 @@ jobs:
       - name: Cache Stack install
         uses: actions/cache@v2
         with:
-          path: C:/sr/snapshots
+          path: C:/sr/
           key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-Stack-Cache
