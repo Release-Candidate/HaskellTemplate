@@ -50,6 +50,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-Stack-Cache
 
+      - name: Cache Stack install 2
+        uses: actions/cache@v2
+        with:
+          path: ~/AppData/Local/Programs/stack
+          key: ${{ runner.os }}-Stack-Cache2-${{ hashFiles('stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-Stack-Cache2
+
       - name: Setup Tools
         run: |
           stack install
@@ -105,6 +113,14 @@ jobs:
           key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
           restore-keys: |
             ${{ runner.os }}-Stack-Cache
+
+      - name: Cache Stack install 2
+        uses: actions/cache@v2
+        with:
+          path: ~/AppData/Local/Programs/stack
+          key: ${{ runner.os }}-Stack-Cache2-${{ hashFiles('stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-Stack-Cache2
 
       - name: Setup Tools
         run: |
