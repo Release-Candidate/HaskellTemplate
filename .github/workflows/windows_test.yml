@@ -16,7 +16,7 @@ on:
   pull_request:
     branches: [main]
   workflow_run:
-    workflows: ["Nuget Packages"]
+    workflows: ["Packages"]
     types: [completed]
 
   # Allows you to run this workflow manually from the Actions tab
@@ -30,30 +30,33 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.x
+      - name: Setup Haskell
+        - uses: actions/checkout@v2
+        - uses: haskell/actions/setup@v1
+          with:
+            ghc-version: '8.10'
+            # cabal-version: 'latest'. Omitted, but defaults to 'latest'
+            enable-stack: true
+            stack-version: 'latest'
 
       - name: Setup Tools
         run: |
-          dotnet tool restore
-          dotnet paket restore
+          stack install
 
-      - name: Run Tests
+      - name: Run Tests & Coverage
         shell: cmd
         run: |
-          dotnet fake run .\build.fsx target TestsCoverage
+          run_codecov_coverage.bat
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         if: ${{ always() }}
         with:
           token: ${{ secrets.CODECOV_SECRET }}
-          files: ./test_results/coverage.xml
+          files: ./coverage.json
           directory: ./coverage/reports/
           # flags: unittest
-          env_vars: OS,PYTHON
+          env_vars: OS,HASKELL
           name: Windows-Test-Src
           fail_ci_if_error: false
           path_to_write_report: ./coverage/codecov_report.txt
@@ -65,36 +68,33 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.x
+      - name: Setup Haskell
+        - uses: actions/checkout@v2
+        - uses: haskell/actions/setup@v1
+          with:
+            ghc-version: '8.10'
+            # cabal-version: 'latest'. Omitted, but defaults to 'latest'
+            enable-stack: true
+            stack-version: 'latest'
 
       - name: Setup Tools
         run: |
-          dotnet tool restore
-          dotnet paket restore
-
-      - name: Publish Tests
-        shell: cmd
-        run: |
-          cd $GITHUB_WORKSPACE
-          dotnet fake run .\build.fsx target Publish
+          stack install
 
       - name: Run Tests
         shell: cmd
         run: |
-          cd $GITHUB_WORKSPACE
-          dotnet .\bin\TestTzolkin.dll --summary --nunit-summary .\test_results\nresult.xml --junit-summary .\test_results\jresult.xml
+          stack clean
+          stack test
 
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: Test Results
-          path: ./test_results/*.xml
+      # - uses: actions/upload-artifact@v2
+      #   if: ${{ always() }}
+      #   with:
+      #     name: Test Results
+      #     path: ./test_results/*.xml
 
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action/composite@v1
-        if: always()
-        with:
-          files: ./test_results/jresult.xml
+      # - name: Publish Unit Test Results
+      #   uses: EnricoMi/publish-unit-test-result-action/composite@v1
+      #   if: always()
+      #   with:
+      #     files: ./test_results/jresult.xml
