@@ -56,6 +56,10 @@ goldenRatio numDig = goldenHelper numDig 3
         [_] -> 1.0
         [_, _] -> 1.0
         x : y : z : _ ->
-          if abs (fromInteger x / fromInteger y - fromInteger y / fromInteger z) < 10.0 ** (- fromIntegral numdig :: Double)
-            then fromInteger x / fromInteger y
+          if abs (curr - before) < epsilon
+            then curr
             else goldenHelper numdig (l + 1)
+          where
+            curr :: Double = fromInteger x / fromInteger y
+            before :: Double = fromInteger y / fromInteger z
+            epsilon = 10.0 ** (- fromIntegral numdig :: Double)

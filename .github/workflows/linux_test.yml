@@ -30,27 +30,26 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.x
 
       - name: Setup Tools
         run: |
-          dotnet tool restore
-          dotnet paket restore
+          stack install
 
-      - name: Run Tests
+      - name: Run Tests & Coverage
         run: |
           cd $GITHUB_WORKSPACE
-          dotnet fake run ./build.fsx target TestsCoverage
+          stack clean
+          stack test --coverage
+          TIX=$(stack path --local-hpc-root)/TestHaskell/TestHaskell-test/TestHaskell-test.tix
+          MIX="$(stack path --dist-dir)/hpc
+          stack exec -- hpc-codecov --verbose -o coverage.json -m "${MIX}" "${TIX}"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         if: ${{ always() }}
         with:
           token: ${{ secrets.CODECOV_SECRET }}
-          files: ./test_results/coverage.xml
+          files: ./coverage.json
           directory: ./coverage/reports/
           # flags: unittest
           env_vars: OS,PYTHON
@@ -65,34 +64,25 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.x
 
       - name: Setup Tools
         run: |
-          dotnet tool restore
-          dotnet paket restore
-
-      - name: Publish Tests
-        run: |
-          cd $GITHUB_WORKSPACE
-          dotnet fake run ./build.fsx target Publish
+          stack install
 
       - name: Run Tests
         run: |
           cd $GITHUB_WORKSPACE
-          dotnet ./bin/TestTzolkin.dll --summary --nunit-summary ./test_results/nresult.xml --junit-summary ./test_results/jresult.xml
+          stack clean
+          stack test
 
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: Test Results
-          path: ./test_results/*.xml
+      # - uses: actions/upload-artifact@v2
+      #   if: ${{ always() }}
+      #   with:
+      #     name: Test Results
+      #     path: ./test_results/*.xml
 
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
-        if: always()
-        with:
-          files: ./test_results/jresult.xml
+      # - name: Publish Unit Test Results
+      #   uses: EnricoMi/publish-unit-test-result-action@v1
+      #   if: always()
+      #   with:
+      #     files: ./test_results/jresult.xml

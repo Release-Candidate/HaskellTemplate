@@ -23,7 +23,8 @@ dependencies:
   - base >= 4.7 && < 5
 
 library:
-  source-dirs: src
+  source-dirs:
+    - src
 
 ghc-options:
   - -haddock
@@ -73,7 +74,7 @@ executables:
     main:                Main.hs
     source-dirs:
       - app
-      - src
+#      - src
     ghc-options:
     - -threaded
     - -rtsopts
@@ -87,7 +88,7 @@ tests:
     main:                Spec.hs
     source-dirs:
       - test
-      - src
+   #   - src
     ghc-options:
     - -threaded
     - -rtsopts
