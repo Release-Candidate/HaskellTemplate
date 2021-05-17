@@ -49,9 +49,10 @@ fibZip len = take len fibZips
 goldenRatio :: Int -> Double
 goldenRatio numDig = goldenHelper numDig 3
   where
+    fibs = fibZip (maxBound :: Int)
     goldenHelper :: Int -> Int -> Double
     goldenHelper numdig l =
-      case reverse $ fibZip l of
+      case reverse $ take l fibs of
         [] -> 0.0
         [_] -> 1.0
         [_, _] -> 1.0
