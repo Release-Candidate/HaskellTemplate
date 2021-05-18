@@ -19,7 +19,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  package:
+  package-linux:
     runs-on: ubuntu-20.04
 
     steps:
@@ -61,6 +61,7 @@ jobs:
           stack clean
           stack build
           stack install --local-bin-path ./bin
+          for FILE in ./bin/*; do mv "${FILE}" "${FILE}-linux"; done
 
       - name: Generate Changelog
         run: |
@@ -92,4 +93,153 @@ jobs:
         if: ${{ always() }}
         with:
           name: Packages Linux
+          path: ./bin/*
+
+  ################################################################################
+
+  package-osx:
+    runs-on: macos-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Cache Stack install
+        uses: actions/cache@v2
+        with:
+          path: ~/.stack/
+          key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-Stack-Cache
+
+      - name: Setup pipenv
+        run: python -m pip install --upgrade pipenv
+
+      - name: Setup MkDocs
+        run: |
+          cd $GITHUB_WORKSPACE
+          python -m pipenv install --dev
+
+      - name: Setup Tools
+        run: |
+          stack install
+
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: "v(.*)"
+
+      - name: Build Package
+        run: |
+          cd $GITHUB_WORKSPACE
+          stack clean
+          stack build
+          stack install --local-bin-path ./bin
+          for FILE in ./bin/*; do mv "${FILE}" "${FILE}-mac_osx"; done
+
+      - name: Generate Changelog
+        run: |
+          cd $GITHUB_WORKSPACE/scripts
+          ./get_changelog.sh > ../first_changelog.md
+
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Version ${{ env.GIT_TAG_NAME }}
+          body_path: first_changelog.md
+          files: ./bin/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      #- name: Release NuGet to GitHub
+      #  uses: svenstaro/upload-release-action@v2
+      #  if: startsWith(github.ref, 'refs/tags/')
+      #  with:
+      #    release_name: Version ${{ env.GIT_TAG_NAME }}
+      #    repo_token: ${{ secrets.GITHUB_TOKEN }}
+      #    tag: ${{ github.ref }}
+      #    file_glob: false
+      #    asset_name: NuGet Package
+      #    file: ./bin/*
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Packages OS X
+          path: ./bin/*
+
+  ################################################################################
+
+  package-windows:
+    runs-on: windows-2019
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Cache Stack install
+        uses: actions/cache@v2
+        with:
+          path: ~/.stack/
+          key: ${{ runner.os }}-Stack-Cache-${{ hashFiles('stack.yaml.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-Stack-Cache
+
+      - name: Setup pipenv
+        run: python -m pip install --upgrade pipenv
+
+      - name: Setup MkDocs
+        run: |
+          cd $GITHUB_WORKSPACE
+          python -m pipenv install --dev
+
+      - name: Setup Tools
+        run: |
+          stack install
+
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        with:
+          tagRegex: "v(.*)"
+
+      - name: Build Package
+        run: |
+          cd $GITHUB_WORKSPACE
+          stack clean
+          stack build
+          stack install --local-bin-path ./bin
+
+      - name: Release to GitHub
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: Version ${{ env.GIT_TAG_NAME }}
+          files: ./bin/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      #- name: Release NuGet to GitHub
+      #  uses: svenstaro/upload-release-action@v2
+      #  if: startsWith(github.ref, 'refs/tags/')
+      #  with:
+      #    release_name: Version ${{ env.GIT_TAG_NAME }}
+      #    repo_token: ${{ secrets.GITHUB_TOKEN }}
+      #    tag: ${{ github.ref }}
+      #    file_glob: false
+      #    asset_name: NuGet Package
+      #    file: ./bin/*
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: Packages Windows
           path: ./bin/*
