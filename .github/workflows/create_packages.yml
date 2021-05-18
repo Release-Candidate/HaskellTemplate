@@ -198,11 +198,13 @@ jobs:
         run: python -m pip install --upgrade pipenv
 
       - name: Setup MkDocs
+        shell: cmd
         run: |
           cd $GITHUB_WORKSPACE
           python -m pipenv install --dev
 
       - name: Setup Tools
+        shell: cmd
         run: |
           stack install
 
@@ -212,6 +214,7 @@ jobs:
           tagRegex: "v(.*)"
 
       - name: Build Package
+        shell: cmd
         run: |
           cd $GITHUB_WORKSPACE
           stack clean
