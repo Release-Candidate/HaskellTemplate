@@ -36,7 +36,7 @@ Detailed documentation can be found at [Read the Docs](https://haskelltemplate.r
 You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `TestHaskell`, `Release-Candidate` and my name. Or use [BigTemplate.hsfiles](./BigTemplate.hsfiles) to generate a local project from this repository, using `stack new`:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate
+stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 ### Haskell and Stack
@@ -46,7 +46,7 @@ You need [Stack](https://docs.haskellstack.org/en/stable/README/) to install eve
 To generate a new project named `PROJECT_NAME` using this template, you have to call `stack new` with it:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate
+stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 Enter the directory `PROJECT_NAME` and execute
