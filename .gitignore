@@ -1,6 +1,9 @@
 # Bak files
 *~
 
+# Installed executables
+bin/
+
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
 

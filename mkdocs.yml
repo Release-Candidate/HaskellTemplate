@@ -26,6 +26,8 @@ nav:
   - "Installation & Usage":
       - "Installation & Usage": usage.md
       - License: license.md
+  - "Reference Documentation":
+      - "Library Reference": html/index.html
   - Contributing:
       - Contributing: contributing.md
 
