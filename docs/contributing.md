@@ -339,26 +339,6 @@ as a secret to the GitHub repositories named `CODECOV_SECRET` and upload the cov
 using a GitHub action. Used in the workflows [linux_test.yml](https://github.com/Release-Candidate/Tzolkin/blob/main/.github/workflows/linux_test.yml),
 [osx_test.yml](https://github.com/Release-Candidate/Tzolkin/blob/main/.github/workflows/osx_test.yml) and [windows_test.yml](https://github.com/Release-Candidate/Tzolkin/blob/main/.github/workflows/windows_test.yml)
 
-```yml
-      - name: Run Tests
-        run: |
-          cd $GITHUB_WORKSPACE
-          dotnet fake run ./build.fsx target TestsCoverage
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        if: ${{ always() }}
-        with:
-          token: ${{ secrets.CODECOV_SECRET }}
-          files: ./test_results/coverage.xml
-          directory: ./coverage/reports/
-          # flags: unittest
-          env_vars: OS,PYTHON
-          name: Linux-Test-Src
-          fail_ci_if_error: false
-          path_to_write_report: ./coverage/codecov_report.txt
-          verbose: true
-```
 
 ## GitHub Workflows
 
