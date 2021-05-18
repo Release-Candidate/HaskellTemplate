@@ -24,7 +24,7 @@ Add screenshots or your code or copy error messages to help explain your problem
 **Desktop (please complete the following information):**
  - OS: [e.g. Linux]
  - Version [e.g. 1.0.2]
- - .Net version [e.g. 5.0.4]
+ - Haskell ghc version [e.g. 8.10.4]
 
 **Additional context**
 Add any other context about the problem here.
