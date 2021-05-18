@@ -7,9 +7,10 @@
 # Date:     18.May.2021
 ###############################################################################
 
-TIX_DIR=$(stack path --local-hpc-root)
+HPC_ROOT_DIR=$(stack path --local-hpc-root)
+TIX_PATH=$(find "${HPC_ROOT_DIR}"/TestHaskell -name "*.tix")
 MIX_DIR=$(stack path --dist-dir)
 
 stack clean
 stack test --coverage
-stack exec -- hpc-codecov --verbose -o coverage.json "${TIX_DIR}\TestHaskell\TestHaskell-test\TestHaskell-test.tix" -m "${MIX_DIR}\hpc"
+stack exec -- hpc-codecov --verbose -o coverage.json "${TIX_PATH}" -m "${MIX_DIR}/hpc"
