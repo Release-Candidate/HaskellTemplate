@@ -16,6 +16,7 @@ copyright: "2021 Roland Csaszar"
 extra-source-files:
   - README.md
   - CHANGELOG.md
+  - LICENSE
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
