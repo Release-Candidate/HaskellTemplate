@@ -38,12 +38,12 @@
       "problemMatcher": []
     },
     {
-      "label": "Run ghcid on startup",
+      "label": "Run watch on startup",
       "type": "shell",
       "isBackground": true,
-      "command": "ghcid -o ghcid.txt",
+      "command": "stack test --fast --haddock-deps --file-watch",
       "windows": {
-        "command": "ghcid -o ghcid.txt"
+        "command": "stack test --fast --haddock-deps --file-watch"
       },
       "runOptions": {
         "runOn": "folderOpen"

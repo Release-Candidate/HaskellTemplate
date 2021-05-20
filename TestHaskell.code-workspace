@@ -10,7 +10,8 @@
 		"ghcid.command": "ghcid",
 		"coverage-gutters.coverageReportFileName": "lcov.info",
 		"files.trimFinalNewlines": true,
-		"files.trimTrailingWhitespace": true
+		"files.trimTrailingWhitespace": true,
+		"FSharp.suggestGitignore": false
 	},
 	"launch": {
 		"version": "0.2.0",
