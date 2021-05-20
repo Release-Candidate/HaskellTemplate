@@ -32,6 +32,7 @@ EMAIL_PH="{{author-email}}{{^author-email}}YOUR_EMAIL\@example.com{{/author-emai
 COPYRIGHT_NAME="2021 Roland Csaszar"
 COPYRIGHT_PH="{{copyright}}{{^copyright}}{{year}}{{^year}}$(date +\"%Y\"){{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}"
 
+
 # All files under Git control, withoud everything in `docs/html`, the Github
 # workflows and the template file itself.
 FILE_LIST=$(git ls-files | grep -v "docs/html" | grep -v ".hsfiles" | grep -v ".github/workflows/")
