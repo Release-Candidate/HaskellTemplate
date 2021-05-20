@@ -206,7 +206,7 @@ Initial Release
 {-# START_FILE LICENSE #-}
 MIT License
 
-Copyright (c) 2021 {{author-name}}
+Copyright (c) 2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -257,7 +257,7 @@ Detailed documentation can be found at [Read the Docs](https://haskelltemplate.r
 
 [![Haskell badge](https://img.shields.io/badge/uses-Haskell-brightgreen?style=flat)](https://www.haskell.org/)
 [![HSpec badge](https://img.shields.io/badge/uses-Hspec-brightgreen?style=flat)](https://hspec.github.io/)
-[![GitHub License badge](https://img.shields.io/github/license/{{github-username}}/HaskellTemplate)](https://github.com/{{github-username}}/HaskellTemplate/blob/main/LICENSE)
+[![GitHub License badge](https://img.shields.io/github/license/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/haskelltemplate/badge/?version=latest)](https://haskelltemplate.readthedocs.io/en/latest/?badge=latest)
 [more badges ...](#badges)
 
@@ -278,10 +278,10 @@ Detailed documentation can be found at [Read the Docs](https://haskelltemplate.r
 
 ## Usage
 
-You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `{{name}}`, `{{github-username}}` and my name. Or use [BigTemplate.hsfiles](./BigTemplate.hsfiles) to generate a local project from this repository, using `stack new`:
+You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `{{name}}`, `{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}` and my name. Or use [BigTemplate.hsfiles](./BigTemplate.hsfiles) to generate a local project from this repository, using `stack new`:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}/HaskellTemplate/main/BigTemplate
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 ### Haskell and Stack
@@ -291,7 +291,7 @@ You need [Stack](https://docs.haskellstack.org/en/stable/README/) to install eve
 To generate a new project named `PROJECT_NAME` using this template, you have to call `stack new` with it:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}/HaskellTemplate/main/BigTemplate
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 Enter the directory `PROJECT_NAME` and execute
@@ -364,7 +364,7 @@ see as preview as soon as you save the file. The generated HTML files are saved 
 A list of all files in this template and what they do or configure.
 
 - [README.md](./README.md) - The file that you are reading right now.
-- [LICENSE](./LICENSE) - The project'S license, MIT.
+- [LICENSE](./LICENSE) - The project'S license, {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}.
 - [CHANGELOG.md](./CHANGELOG.md) - The project's changelog.
 
 #### Scripts
@@ -473,7 +473,7 @@ Directory [`.github/ISSUE_TEMPLATE`](./github/ISSUE_TEMPLATE/):
 
 Directory [`.github/workflows/`](./.github/workflows/):
 
-- [create_packages.yml](./.github/workflows/create_packages.yml) - A GitHub workflow to build the executable(s), install them to `./bin` and create a GitHub release (like [Latest Release at GitHub](https://github.com/{{github-username}}/HaskellTemplate/releases/latest)). This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
+- [create_packages.yml](./.github/workflows/create_packages.yml) - A GitHub workflow to build the executable(s), install them to `./bin` and create a GitHub release (like [Latest Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases/latest)). This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
 - [linux_test.yml](./.github/workflows/linux_test.yml) - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.
 - [osx_test.yml](./.github/workflows/osx_test.yml) - Run tests and coverage tests on Mac OS X in 2 jobs, upload the coverage results to Codecov.
 - [windows_test.yml](./.github/workflows/windows_test.yml) - Run tests and coverage tests on Windows in 2 jobs, upload the coverage results to Codecov.
@@ -487,10 +487,10 @@ Directory [`.github/workflows/`](./.github/workflows/):
   nav:
   - Home: index.md
   - Project Links:
-      - "Downloads": https://github.com/{{github-username}}/{{name}}/releases/latest
-      - "GitHub Project Page": "https://github.com/{{github-username}}/{{name}}"
-      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}/{{name}}/issues/new/choose"
-      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}/{{name}}/issues"
+      - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest
+      - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
+      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new/choose"
+      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues"
   - "Installation & Usage":
       - "Installation & Usage": usage.md
       - License: license.md
@@ -554,23 +554,23 @@ The Haskell source consists of three parts, the library in the directory `src`, 
 
 That's actually just a placeholder for real text, in this template repo you only get to download a Fibonacci and golden ration command line program for Linux, OS X and Windows.
 
-Download the latest release: [Latest Release at GitHub](https://github.com/{{github-username}}/HaskellTemplate/releases/latest)
+Download the latest release: [Latest Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases/latest)
 
 Changelog of all versions: [CHANGELOG.md](./CHANGELOG.md)
 
-All releases: [All Releases at GitHub](https://github.com/{{github-username}}/HaskellTemplate/releases)
+All releases: [All Releases at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases)
 
 ## Badges
 
 ### GitHub Workflows
 
-[![Tests Mac OS X latest](https://github.com/{{github-username}}/HaskellTemplate/actions/workflows/osx_test.yml/badge.svg)](https://github.com/{{github-username}}/HaskellTemplate/actions/workflows/osx_test.yml)
-[![Tests Ubuntu 20.04](https://github.com/{{github-username}}/HaskellTemplate/actions/workflows/linux_test.yml/badge.svg)](https://github.com/{{github-username}}/HaskellTemplate/actions/workflows/linux_test.yml)
-[![Tests Windows 2019](https://github.com/{{github-username}}/HaskellTemplate/actions/workflows/windows_test.yml/badge.svg)](https://github.com/{{github-username}}/HaskellTemplate/actions/workflows/windows_test.yml)
+[![Tests Mac OS X latest](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/osx_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/osx_test.yml)
+[![Tests Ubuntu 20.04](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/linux_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/linux_test.yml)
+[![Tests Windows 2019](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/windows_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/windows_test.yml)
 
 ### CodeCov Coverage Report
 
-[![codecov](https://codecov.io/gh/{{github-username}}/HaskellTemplate/branch/main/graph/badge.svg?token=L988V53VRA)](https://codecov.io/gh/{{github-username}}/HaskellTemplate)
+[![codecov](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/branch/main/graph/badge.svg?token=L988V53VRA)](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate)
 
 {-# START_FILE Setup.hs #-}
 import Distribution.Simple
@@ -623,7 +623,7 @@ main = defaultMain
 --
 -- Project:  {{name}}
 -- File:     Main.hs
--- Date:     18.05.2021
+-- Date:     20.05.2021
 --
 --------------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
@@ -685,12 +685,12 @@ main =
     print $ goldenRatio * Lib.goldenRatio 8
 
 {-# START_FILE codecov.yml #-}
-# SPDX-License-Identifier: MIT
-# Copyright (C) 2021 {{author-name}}
+# SPDX-License-Identifier: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
+# Copyright (C) 2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}
 #
 # Project:  {{name}}
 # File:     codecov.yml
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 ignore:
     - "./test/"
@@ -724,9 +724,9 @@ If you encounter a problem using Tzolkin, a task it not as easy as you'd like it
 
 ## Report Issues (Bugs and Feature Requests)
 
-File a bug report at [Github](https://github.com/{{github-username}}/Tzolkin/issues/new?assignees=&labels=&template=bug_report.md&title=).
-Add a feature request at [Github](https://github.com/{{github-username}}/Tzolkin/issues/new?assignees=&labels=&template=feature_request.md&title=).
-Take a look at the [Issue Tracker at GitHub](https://github.com/{{github-username}}/Tzolkin/issues)
+File a bug report at [Github](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/issues/new?assignees=&labels=&template=bug_report.md&title=).
+Add a feature request at [Github](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/issues/new?assignees=&labels=&template=feature_request.md&title=).
+Take a look at the [Issue Tracker at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/issues)
 
 ## Forking the Repository
 
@@ -762,7 +762,7 @@ See
 - [Using Python on a Macintosh](https://docs.python.org/3/using/mac.html)
 - [Using Python on Unix Platforms](https://docs.python.org/3/using/unix.html)
 
-In the file [`Pipfile`](https://github.com/{{github-username}}/Tzolkin/blob/main/Pipfile) there is a stanza saying
+In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/Pipfile) there is a stanza saying
 
 ```ini
 [requires]
@@ -809,10 +809,10 @@ see as preview as soon as you save the file. The generated HTML files are saved 
       nav:
     - Home: index.md
     - Project Links:
-        - "GitHub Project Page": "https://github.com/{{github-username}}/Tzolkin"
+        - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin"
         - "Nuget Package": "https://www.nuget.org/packages/Tzolkin/"
-        - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}/Tzolkin/issues/new/choose"
-        - "Issue Tracker at GitHub": "https://github.com/{{github-username}}/Tzolkin/issues"
+        - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/issues/new/choose"
+        - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/issues"
     - "Installation & Usage":
         - "Installation & Usage": usage.md
         - "NuGet Package": nuget_package.md
@@ -835,7 +835,7 @@ Read the Docs automatically generates the MkDocs documentation after each `git p
 
 #### GitHub Documentation
 
-The Markdown documentation for GitHub are the files [README.md](https://github.com/{{github-username}}/tzolkin-calendar/blob/main/README.md) and [CHANGELOG.md](https://github.com/{{github-username}}/tzolkin-calendar/blob/main/CHANGELOG.md) in the project root directory.
+The Markdown documentation for GitHub are the files [README.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/tzolkin-calendar/blob/main/README.md) and [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/tzolkin-calendar/blob/main/CHANGELOG.md) in the project root directory.
 
 ## Source Code
 
@@ -849,7 +849,7 @@ dotnet tool restore
 ```
 
 now you have installed Fake, Paket and FSharpLint,
-configured in the file [`.config/dotnet-tools.json`](https://github.com/{{github-username}}/Tzolkin/blob/main/.config/dotnet-tools.json)
+configured in the file [`.config/dotnet-tools.json`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/.config/dotnet-tools.json)
 
 2. Download and install ("restore") the Paket Nuget packages.
 
@@ -868,7 +868,7 @@ environment is the same as the locally installed Nuget packages above.
 So, first you need to install Python, if you don't
 have it installed already - either from your distributions repository, using the XCode or [Homebrew](https://brew.sh/) version,
 or getting it from [Python.org](https://www.python.org/downloads/).
-In the file [`Pipfile`](https://github.com/{{github-username}}/Tzolkin/blob/main/Pipfile) there is a stanza saying
+In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/Pipfile) there is a stanza saying
 
 ```ini
 [requires]
@@ -921,13 +921,13 @@ Files:
 The Nuget package Tzolkin and the tests can be build using Fake, for anything smartphone related you need to use Visual Studio or Monodevelop, I did not succeed porting these projects to Paket and Fake.
 
 - NuGet packages generated by the target `Packages` are saved to the directory `nuget`, set using the expression
-  `packageOutputPath` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx).
+  `packageOutputPath` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx).
 - The test results of the targets `Tests` and `TestsDeb` are saved as  `.xml` files in the
-  directory `test_results`, set using the expression  `testOutputPath` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx).
+  directory `test_results`, set using the expression  `testOutputPath` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx).
 - The coverage report `coverage.xml` of the targets `TestsCoverage` and `TestsCoverageDeb`
   is saved to the directory `test_results`, set using the expression  `testOutputPath`
-  in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx).
-- The output of the `Publish` target is copied to the directory `bin`, set using the expression  `exeOutPath` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx).
+  in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx).
+- The output of the `Publish` target is copied to the directory `bin`, set using the expression  `exeOutPath` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx).
 
 !!! Warning
 
@@ -935,34 +935,34 @@ The Nuget package Tzolkin and the tests can be build using Fake, for anything sm
     Which is called as the first build step of all targets. In other words: all generated
     files (including Nuget packages) are deleted when calling any target.
 
-The Fake script [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx) defines the following targets:
+The Fake script [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx) defines the following targets:
 
 - `Clean` deletes all files generated by the build. **This is called first in every other target, all generated files are deleted before running any target!**
 - `Distclean` deletes everything that isn't checked in to Git
 - `Build` and `BuildDeb` build the configured projects
    using `dotnet build`. Without suffix a release build is made, `BuildDeb` uses the
    debug configuration. Default is to build all projects found in the directories
-   `src` and `tests`. The expression `buildProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx) defines
+   `src` and `tests`. The expression `buildProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx) defines
    the projects to build.
 - `Docs` generates the HTML documentation using MkDocs. The HTML is created in the directory `sites`.
-  The output directory is configured in the MkDocs config file [`mkdocs.yml`](https://github.com/{{github-username}}/Tzolkin/blob/main/mkdocs.yml)
-- `Lint` runs FSharpLint on all configured projects. Default is all projects, `lintProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx)
+  The output directory is configured in the MkDocs config file [`mkdocs.yml`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/mkdocs.yml)
+- `Lint` runs FSharpLint on all configured projects. Default is all projects, `lintProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx)
   defines the projects to run `Lint` on.
 - `Tests` and `TestsDeb` build and run all test projects in the directory `tests` using `dotnet test`.
   Without suffix a release build is made, `TestsDeb` uses the  debug configuration.
-  Default is testing all projects in the directory `tests`, `testProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx) defines the projects to run `Tests` and `TestsDeb` on.
+  Default is testing all projects in the directory `tests`, `testProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx) defines the projects to run `Tests` and `TestsDeb` on.
 - `TestsCoverage` and `TestsCoverageDeb`  build and run all tests projects and generate a coverage report using AltCover.
   With and without suffix a debug configuration is build and tested.
-  Default is testing all projects in the directory `tests`, `testProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx) defines the projects to run `TestsCoverage` and `TestsCoverageDeb` on.
+  Default is testing all projects in the directory `tests`, `testProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx) defines the projects to run `TestsCoverage` and `TestsCoverageDeb` on.
 - `Publish` runs `dotnet publish` on the configured projects, default is all in `src`. The
   build is done with the release configuration, the version **must** be given as argument on the command line
-  and be the same as the newest one in [CHANGELOG.md](https://github.com/{{github-username}}/Tzolkin/blob/main/CHANGELOG.md).
-  `publishProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx) defines the projects to run `Publish` on.
+  and be the same as the newest one in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/CHANGELOG.md).
+  `publishProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx) defines the projects to run `Publish` on.
   Published binaries are saved to the directory `bin`.
 - `Packages` builds the NuGet packages of all projects using a release build. The
   build is done with the release configuration, the version **must** be given as argument on the command line
-  and be the same as the newest one in [CHANGELOG.md](https://github.com/{{github-username}}/Tzolkin/blob/main/CHANGELOG.md).
-  `packageProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx) defines the projects to run `Packages` on.
+  and be the same as the newest one in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/CHANGELOG.md).
+  `packageProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx) defines the projects to run `Packages` on.
   Packages are saved to the directory `packages`
 - `Upload` uploads all packages in the directory `packages` to NuGet.org. The NuGet API key
   needs to be saved to the configuration using
@@ -973,7 +973,7 @@ nuget setApiKey API_KEY
 
 - `Release` is a pseudo-target, the same as `Build`, `Docs`, `Publish`, `Packages` and `Upload`. The
   build is done with the release configuration, the version **must** be given as argument on the command line
-  and be the same as the newest one in [CHANGELOG.md](https://github.com/{{github-username}}/Tzolkin/blob/main/CHANGELOG.md).
+  and be the same as the newest one in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/CHANGELOG.md).
 - `All` is a pseudo-target, the same as `Build` and `Docs`,
 
 Usage:
@@ -984,7 +984,7 @@ dotnet fake run build.fsx target TARGET VERSION_STRING
 
 - `TARGET` is the name of the target to call, see above list for possible targets
 - `VERSION_STRING` is the version to use for the target, **must** be the same as the first (newest)
-  version in the file [`CHANGELOG.md`](https://github.com/{{github-username}}/Tzolkin/blob/main/CHANGELOG.md). Targets that need `VERSION_STRING` are
+  version in the file [`CHANGELOG.md`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/CHANGELOG.md). Targets that need `VERSION_STRING` are
   `Packages`, `Publish`, `Upload` and `Release`.
 
 Run all default targets (see above):
@@ -1011,7 +1011,7 @@ Generate the Nuget packages of version `2.65.93` and upload to [NuGet.org](https
 dotnet fake run build.fsx target Upload 2.65.93
 ```
 
-Run `dotnet publish` on the configured projects (`publishProjs` in [`build.fsx`](https://github.com/{{github-username}}/Tzolkin/blob/main/build.fsx))  setting the
+Run `dotnet publish` on the configured projects (`publishProjs` in [`build.fsx`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/build.fsx))  setting the
 version to 6.2.53
 
 ```shell
@@ -1034,8 +1034,8 @@ dotnet fake run build.fsx target TestsCoverage
 
 Generate an account at [CodeCov](https://about.codecov.io/), link your GitHub repositories, add the CodeCov token
 as a secret to the GitHub repositories named `CODECOV_SECRET` and upload the coverage result
-using a GitHub action. Used in the workflows [linux_test.yml](https://github.com/{{github-username}}/Tzolkin/blob/main/.github/workflows/linux_test.yml),
-[osx_test.yml](https://github.com/{{github-username}}/Tzolkin/blob/main/.github/workflows/osx_test.yml) and [windows_test.yml](https://github.com/{{github-username}}/Tzolkin/blob/main/.github/workflows/windows_test.yml)
+using a GitHub action. Used in the workflows [linux_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/.github/workflows/linux_test.yml),
+[osx_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/.github/workflows/osx_test.yml) and [windows_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/.github/workflows/windows_test.yml)
 
 
 ## GitHub Workflows
@@ -1047,9 +1047,9 @@ These are the GitHub workflows defined in the directory `.github/workflows`
 
 - `create_packages.yml` creates and uploads the NuGet packages, runs `dotnet publish` and
   generates a new GitHUb release with these files appended. Run automatically after tagging
-  the source with a release tag of the form `v?.?.?` (**must be the same version as the newest in [CHANGELOG.md](https://github.com/{{github-username}}/Tzolkin/blob/main/CHANGELOG.md)**).
-  Appends the newest entry in [CHANGELOG.md](https://github.com/{{github-username}}/Tzolkin/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/{{github-username}}/Tzolkin/blob/main/scripts/get_changelog.sh)
-  See the [latest release](https://github.com/{{github-username}}/Tzolkin/releases/latest) as an example
+  the source with a release tag of the form `v?.?.?` (**must be the same version as the newest in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/CHANGELOG.md)**).
+  Appends the newest entry in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/blob/main/scripts/get_changelog.sh)
+  See the [latest release](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/releases/latest) as an example
 - `linux_test.yml` runs the tests and coverage tests on Linux, uploads the test results as artifacts,
   uploads the coverage results to CodeCov.
 - `osx_test.yml` runs the tests and coverage tests on Mac OS X, uploads the test results as artifacts,
@@ -1057,7 +1057,7 @@ These are the GitHub workflows defined in the directory `.github/workflows`
 - `windows_test.yml` runs the tests and coverage tests on Windows, uploads the test results as artifacts,
   uploads the coverage results to CodeCov.
 
-The badges of the workflows are linked in the section [Badges](https://github.com/{{github-username}}/Tzolkin#badges )
+The badges of the workflows are linked in the section [Badges](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin#badges )
 
 ## GitHub Issue Template
 
@@ -1079,7 +1079,7 @@ A video of the smart-phone app is at [YouTube](https://www.youtube.com/watch?v=o
 
 
 Information about the usage of the F# NuGet library Tzolkin you find at [NuGet Package](./nuget_package.md).
-To interactively try out the F# NuGet package Tzolkin, go to the Jupyter Notebook at [![Binder badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/{{github-username}}/Tzolkin/main?filepath=Tzolkin.ipynb)
+To interactively try out the F# NuGet package Tzolkin, go to the Jupyter Notebook at [![Binder badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/main?filepath=Tzolkin.ipynb)
 
 [Contributing](./contributing.md) has information about how to contribute to Tzolkin, by
 filing bug reports or feature requests, to contributing source code, to adding documentation
@@ -1105,13 +1105,13 @@ Mayan Glyphs and Unicode: [Roadmap to the SMP](https://www.unicode.org/roadmaps/
 {-# START_FILE docs/license.md #-}
 # License
 
-Tzolkin is licensed under the MIT license:
+Tzolkin is licensed under the {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}} license:
 
 ```text
 
-MIT License
+{{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}} License
 
-Copyright (c) 2021 {{author-name}}
+Copyright (c) 2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1124,7 +1124,7 @@ The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+IMPLIED, INCLUDING BUT NOT LI{{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}ED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
@@ -1140,7 +1140,7 @@ python-markdown-math==0.8
 
 ## Installation
 
-Download the latest release: [Release at GitHub](https://github.com/{{github-username}}/Tzolkin/releases/latest)
+Download the latest release: [Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/Tzolkin/releases/latest)
 
 
 {-# START_FILE hie.yaml #-}
@@ -1155,12 +1155,6 @@ cradle:
     - path: "./app/Paths_{{name}}.hs"
       component: "{{name}}:exe:{{name}}-exe"
 
-    - path: "./src/Lib.hs"
-      component: "{{name}}:exe:{{name}}-exe"
-
-    - path: "./src/Paths_{{name}}.hs"
-      component: "{{name}}:exe:{{name}}-exe"
-
     - path: "./test"
       component: "{{name}}:test:{{name}}-test"
 
@@ -1170,7 +1164,7 @@ cradle:
 ::
 :: Project:  {{name}}
 :: File:     build_tools.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 :: Locally install mkdocs
@@ -1201,7 +1195,7 @@ stack exec gen-hie > hie.yaml
 #
 # Project:  {{name}}
 # File:     install_build_tools.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 # Locally install mkdocs
@@ -1231,13 +1225,29 @@ stack exec gen-hie > hie.yaml
 ::
 :: Project:  {{name}}
 :: File:     make_sh_executable.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Add the executable bit to '.sh' shell scripts, as this is a problem on
 :: Windows filessystems.
 
 "C:\Program Files\git\usr\bin\find"  ./ -name "*.sh" -exec git add --chmod=+x {} ;
+
+{-# START_FILE make_sh_executable.sh #-}
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 Roland Csaszar
+#
+# Project:  HaskellTemplate
+# File:     make_template_file.sh
+# Date:     20.05.2021
+###############################################################################
+
+
+# Add the executable bit to '.sh' shell scripts, as the template engine
+# doesn't set them.
+
+find  ./ -name "*.sh" -exec git add --chmod=+x {} \;
 
 {-# START_FILE make_template_file.sh #-}
 #!/bin/bash
@@ -1246,7 +1256,7 @@ stack exec gen-hie > hie.yaml
 #
 # Project:  HaskellTemplate
 # File:     make_template_file.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 # Name of the template file to generate.
@@ -1255,24 +1265,27 @@ TEMPLATE_FILE="BigTemplate.hsfiles"
 # Totally ignore this file.
 IGNORE_ALL="make_template.sh"
 
-# Strings to substitue with placeholders.
+# Strings to substitue with placeholders. ??_NAME gets substituted by ??_PH.
 PROJECT_NAME="{{name}}"
 PROJECT_PH="{{name}}"
 
-GITUSER_NAME="{{github-username}}"
-GITUSER_PH="{{github-username}}"
+GITUSER_NAME="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+GITUSER_PH="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+
+LICENSE_NAME="MIT"
+LICENSE_PH="{{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}"
 
 AUTHOR_NAME="Roland Csaszar"
-AUTHOR_PH="{{author-name}}"
+AUTHOR_PH="{{author-name}}{{^author-name}}Author name here{{/author-name}}"
 
-EMAIL_NAME="{{author-email}}"
-EMAIL_PH="{{author-email}}"
+EMAIL_NAME="rec\@gmx.at"
+EMAIL_PH="{{author-email}}{{^author-email}}YOUR_EMAIL\@example.com{{/author-email}}"
 
 COPYRIGHT_NAME="2021 Roland Csaszar"
-COPYRIGHT_PH="{{copyright}}"
+COPYRIGHT_PH="{{copyright}}{{^copyright}}{{year}}{{^year}}$(date +\"%Y\"){{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}"
 
-# All files under Git control, withoud everything in ` docs/html` and the
-# template file itself.
+# All files under Git control, withoud everything in ` docs/html`, the GitHub
+# workflows and the template file itself.
 FILE_LIST=$(git ls-files | grep -v "docs/html" | grep -v ".hsfiles" | grep -v ".github/workflows/")
 
 if [ -e "${TEMPLATE_FILE}" ]; then
@@ -1289,20 +1302,24 @@ for FILE_NAME in ${FILE_LIST}; do
         cat "${FILE_NAME}"
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.hs$" )" == "1" ]; then
-        sed 's/'${PROJECT_NAME}'/'${PROJECT_PH}'/g;s/'${GITUSER_NAME}'/'${GITUSER_PH}'/g;s/'${EMAIL_NAME}'/'${EMAIL_PH}'/g' "${FILE_NAME}" \
-        | sed 's/ Date:     [0-9]*\.\S*\.20[0-9][0-9]/ Date:     '"$(date +"%d.%m.%Y")"'/'
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.sh$" )" == "1" ]; then
-        sed 's/'${PROJECT_NAME}'/'${PROJECT_PH}'/g;s/'${GITUSER_NAME}'/'${GITUSER_PH}'/g;s/'${EMAIL_NAME}'/'${EMAIL_PH}'/g' "${FILE_NAME}" \
-        | sed 's/ Date:     [0-9]*\.\S*\.20[0-9][0-9]/ Date:     '"$(date +"%d.%m.%Y")"'/'
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
-     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.bat$" )" == "1" ]; then
-        sed 's/'${PROJECT_NAME}'/'${PROJECT_PH}'/g;s/'${GITUSER_NAME}'/'${GITUSER_PH}'/g;s/'${EMAIL_NAME}'/'${EMAIL_PH}'/g' "${FILE_NAME}" \
-        | sed 's/ Date:     [0-9]*\.\S*\.20[0-9][0-9]/ Date:     '"$(date +"%d.%m.%Y")"'/'
+    elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.bat$" )" == "1" ]; then
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+
+    elif [ "${FILE_NAME}" == "LICENSE" ]; then
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g' "${FILE_NAME}" \
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
     else
-        sed 's/'${PROJECT_NAME}'/'${PROJECT_PH}'/g;s/'${GITUSER_NAME}'/'${GITUSER_PH}'/g;s/'"${AUTHOR_NAME}"'/'${AUTHOR_PH}'/g;s/'${EMAIL_NAME}'/'${EMAIL_PH}'/g;s/'"${COPYRIGHT_NAME}"'/'${COPYRIGHT_PH}'/g' "${FILE_NAME}" \
-        | sed 's/ Date:     [0-9]*\.\S*\.20[0-9][0-9]/ Date:     '"$(date +"%d.%m.%Y")"'/'
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'"${LICENSE_NAME}"'@'"${LICENSE_PH}"'@g' "${FILE_NAME}" \
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
     fi
     echo ""
     } >> "${TEMPLATE_FILE}"
@@ -1310,20 +1327,20 @@ for FILE_NAME in ${FILE_LIST}; do
 done
 
 {-# START_FILE mkdocs.yml #-}
-# SPDX-License-Identifier: MIT
-# Copyright (C) 2021 {{author-name}}
+# SPDX-License-Identifier: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
+# Copyright (C) 2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}
 #
 # Project:  {{name}}
 # File:     mkdocs.yml
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 site_name: {{name}}
 
 site_url: https://readthedocs.org/projects/{{name}}/
-#repo_url: https://github.com/{{github-username}}/{{name}}
+#repo_url: https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}
 #repo_name: GitHub
-#copyright: (C) 2021 {{author-name}}
+#copyright: (C) 2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}
 
 docs_dir: docs
 site_dir: site
@@ -1331,10 +1348,10 @@ site_dir: site
 nav:
   - Home: index.md
   - Project Links:
-      - "Downloads": https://github.com/{{github-username}}/{{name}}/releases/latest
-      - "GitHub Project Page": "https://github.com/{{github-username}}/{{name}}"
-      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}/{{name}}/issues/new/choose"
-      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}/{{name}}/issues"
+      - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest
+      - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
+      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new/choose"
+      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues"
   - "Installation & Usage":
       - "Installation & Usage": usage.md
       - License: license.md
@@ -1377,24 +1394,25 @@ plugins:
   - search
 
 {-# START_FILE package.yaml #-}
-# SPDX-License-Identifier: MIT
-# Copyright (C) 2021 {{author-name}}
+# SPDX-License-Identifier: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
+# Copyright (C) 2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}
 #
 # Project:  {{name}}
 # File:     package.yaml
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 name: {{name}}
 version: 0.1.0.0
-github: "{{github-username}}{{^github-username}}githubuser{{/github-username}}/{{name}}"
-license: MIT
+github: "{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
+license: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
 author: "{{author-name}}{{^author-name}}Author name here{{/author-name}}"
-maintainer: "{{author-email}}{{^author-email}}example@example.com{{/author-email}}"
-copyright: "{{copyright}}{{^copyright}}{{year}}{{^year}}2019{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}"
+maintainer: "{{author-email}}{{^author-email}}YOUR_EMAIL@example.com{{/author-email}}"
+copyright: "2021 {{author-name}}{{^author-name}}Author name here{{/author-name}}"
 
 extra-source-files:
   - README.md
   - CHANGELOG.md
+  - LICENSE
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
@@ -1403,7 +1421,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description: Please see the README on GitHub at <https://github.com/{{github-username}}{{^github-username}}githubuser{{/github-username}}/{{name}}#readme>
+description: Please see the README on GitHub at <https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}#readme>
 
 dependencies:
   - base >= 4.7 && < 5
@@ -1499,7 +1517,7 @@ tests:
 ::
 :: Project:  {{name}}
 :: File:     run_code.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Run VS Code or Code Insiders
@@ -1520,7 +1538,7 @@ stack exec "%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\bin\code-insiders
 #
 # Project:  {{name}}
 # File:     run_code.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 # Run VS Code or Code Insiders
 
@@ -1536,7 +1554,7 @@ stack exec code-insiders {{name}}.code-workspace
 ::
 :: Project:  {{name}}
 :: File:     run_coverage.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
@@ -1577,7 +1595,7 @@ GOTO :EOF
 #
 # Project:  {{name}}
 # File:     run_codecov_coverage.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 HPC_ROOT_DIR=$(stack path --local-hpc-root)
@@ -1594,7 +1612,7 @@ stack exec -- hpc-codecov --verbose -o coverage.json "${TIX_PATH}" -m "${MIX_DIR
 ::
 :: Project:  {{name}}
 :: File:     run_coverage.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
@@ -1630,7 +1648,7 @@ GOTO :EOF
 #
 # Project:  {{name}}
 # File:     run_coverage.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 HPC_ROOT_DIR=$(stack path --local-hpc-root)
@@ -1646,7 +1664,7 @@ stack exec -- hpc-lcov --file "${TIX_PATH}"
 ::
 :: Project:  {{name}}
 :: File:     run_haddock.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Run Haddock to generate the library's reference dcumentation to doc/html.
@@ -1660,7 +1678,7 @@ stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 #
 # Project:  {{name}}
 # File:     run_haddock.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 # Run Haddock to generate the library's reference dcumentation to doc/html.
@@ -1673,7 +1691,7 @@ stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 ::
 :: Project:  {{name}}
 :: File:     run_hoogle.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: indexes the project's dependencies and displays the search.
@@ -1688,7 +1706,7 @@ stack hoogle -- server --local --port=8080
 #
 # Project:  {{name}}
 # File:     run_hoogle.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 
 # indexes the project's dependencies and displays the search.
@@ -1702,7 +1720,7 @@ stack hoogle -- server --local --port=8080
 ::
 :: Project:  {{name}}
 :: File:     run_watch.bat
-:: Date:     18.05.2021
+:: Date:     20.05.2021
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Watches for file changes to rebuild and rerun the tests.
@@ -1715,7 +1733,7 @@ stack test --fast --haddock-deps --file-watch
 #
 # Project:  {{name}}
 # File:     run_watch.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 # Watches for file changes to rebuild and rerun the tests.
 stack test --fast --haddock-deps --file-watch
@@ -1727,7 +1745,7 @@ stack test --fast --haddock-deps --file-watch
 #
 # Project:  {{name}}
 # File:     get_changelog.sh
-# Date:     18.05.2021
+# Date:     20.05.2021
 ###############################################################################
 # Returns the newest part of the changelog `CHANGELOG.md`.
 # For use with automatic releases.
@@ -1756,7 +1774,7 @@ fi
 --
 -- Project:  {{name}}
 -- File:     Lib.hs
--- Date:     18.05.2021
+-- Date:     20.05.2021
 --
 --------------------------------------------------------------------------------
 
@@ -1839,7 +1857,7 @@ goldenRatio numDig = goldenHelper numDig 3
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
 resolver:
-  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/12.yaml
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/11.yaml
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -1924,7 +1942,7 @@ snapshots:
 --
 -- Project:  {{name}}
 -- File:     FibonacciSpec.hs
--- Date:     18.05.2021
+-- Date:     20.05.2021
 --
 --------------------------------------------------------------------------------
 
@@ -2027,7 +2045,7 @@ checkFibonacci list =
 --
 -- Project:  {{name}}
 -- File:     GoldenRatioSpec.hs
--- Date:     18.05.2021
+-- Date:     20.05.2021
 --
 --------------------------------------------------------------------------------
 
@@ -2096,7 +2114,7 @@ spec = do
 --
 -- Project:  {{name}}
 -- File:     Spec.hs
--- Date:     18.05.2021
+-- Date:     20.05.2021
 --
 --------------------------------------------------------------------------------
 {-# OPTIONS_GHC -F -pgmF hspec-discover #-}
