@@ -29,6 +29,8 @@ EMAIL_PH="{{author-email}}"
 COPYRIGHT_NAME="2021 Roland Csaszar"
 COPYRIGHT_PH="{{copyright}}"
 
+
+
 # All files under Git control, withoud everything in ` docs/html` and the
 # template file itself.
 FILE_LIST=$(git ls-files | grep -v "docs/html" | grep -v ".hsfiles" | grep -v ".github/workflows/")
