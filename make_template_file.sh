@@ -63,7 +63,7 @@ for FILE_NAME in ${FILE_LIST}; do
         | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
     elif [ "${FILE_NAME}" == "LICENSE" ]; then
-        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g' "${FILE_NAME}" \
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
         | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
     else
