@@ -327,7 +327,7 @@ This script recursively calls
 git add --chmod=+x SHELL_SCRIPT
 ```
 
-for all shell scripts in the directory
+for all shell scripts in the directory.
 
 ### Haskell and Stack
 
@@ -677,7 +677,7 @@ main = defaultMain
 --
 -- Project:  {{name}}
 -- File:     Main.hs
--- Date:     21.05.2021
+--
 --
 --------------------------------------------------------------------------------
 {-# LANGUAGE DeriveDataTypeable #-}
@@ -744,7 +744,7 @@ main =
 #
 # Project:  {{name}}
 # File:     codecov.yml
-# Date:     21.05.2021
+#
 ###############################################################################
 ignore:
     - "./test/"
@@ -1108,8 +1108,8 @@ These are the GitHub workflows defined in the directory `.github/workflows`
 
 - `create_packages.yml` creates and uploads the executable an each OS (Linux, Mac OS X and Windows) and
   generates a new GitHUb release with these files appended. Runs automatically after tagging
-  the source with a release tag of the form `v?.?.?`. Appends the newest entry in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/scripts/get_changelog.sh)
-  See the [latest release](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest) as an example
+  the source with a release tag of the form `v?.?.?`. Appends the newest entry in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/scripts/get_changelog.sh)
+  See the [latest release](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/releases/latest) as an example
 - `linux_test.yml` runs the tests and coverage tests on Linux, uploads the test results as artifacts,
   uploads the coverage results to CodeCov.
 - `osx_test.yml` runs the tests and coverage tests on Mac OS X, uploads the test results as artifacts,
@@ -1243,7 +1243,7 @@ Directory `./.github/workflows/`:
 !!! Warning
     The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/tree/main/.github/workflows).
 
-- `https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/releases/latest``. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
+- `.github/workflows/create_packages.yml`. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend. Build the executable(s) on all 3 OSes and appends them to the GitHub release.
 - `./.github/workflows/linux_test.yml` - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/osx_test.yml` - Run tests and coverage tests on Mac OS X in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/windows_test.yml` - Run tests and coverage tests on Windows in 2 jobs, upload the coverage results to Codecov.
@@ -1541,7 +1541,7 @@ cradle:
 ::
 :: Project:  {{name}}
 :: File:     build_tools.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 @echo off
 :: Locally install mkdocs
@@ -1572,7 +1572,7 @@ stack exec gen-hie > hie.yaml
 #
 # Project:  {{name}}
 # File:     install_build_tools.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 # Locally install mkdocs
@@ -1602,7 +1602,7 @@ stack exec gen-hie > hie.yaml
 ::
 :: Project:  {{name}}
 :: File:     make_sh_executable.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Add the executable bit to '.sh' shell scripts, as this is a problem on
@@ -1617,7 +1617,7 @@ stack exec gen-hie > hie.yaml
 #
 # Project:  HaskellTemplate
 # File:     make_template_file.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 
@@ -1633,7 +1633,7 @@ find  ./ -name "*.sh" -exec git add --chmod=+x {} \;
 #
 # Project:  HaskellTemplate
 # File:     make_template_file.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 # Name of the template file to generate.
@@ -1681,23 +1681,23 @@ for FILE_NAME in ${FILE_LIST}; do
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.hs$" )" == "1" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.sh$" )" == "1" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.bat$" )" == "1" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     elif [ "${FILE_NAME}" == "LICENSE" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     else
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${LICENSE_NAME}"'@'"${LICENSE_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
     fi
     echo ""
     } >> "${TEMPLATE_FILE}"
@@ -1710,7 +1710,7 @@ done
 #
 # Project:  {{name}}
 # File:     mkdocs.yml
-# Date:     21.05.2021
+#
 ###############################################################################
 
 site_name: {{name}}
@@ -1777,7 +1777,7 @@ plugins:
 #
 # Project:  {{name}}
 # File:     package.yaml
-# Date:     21.05.2021
+#
 ###############################################################################
 name: {{name}}
 version: 0.1.0.0
@@ -1894,7 +1894,7 @@ tests:
 ::
 :: Project:  {{name}}
 :: File:     run_code.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Run VS Code or Code Insiders
@@ -1915,7 +1915,7 @@ stack exec "%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\bin\code-insiders
 #
 # Project:  {{name}}
 # File:     run_code.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 # Run VS Code or Code Insiders
 
@@ -1931,7 +1931,7 @@ stack exec code-insiders {{name}}.code-workspace
 ::
 :: Project:  {{name}}
 :: File:     run_coverage.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
@@ -1972,7 +1972,7 @@ GOTO :EOF
 #
 # Project:  {{name}}
 # File:     run_codecov_coverage.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 HPC_ROOT_DIR=$(stack path --local-hpc-root)
@@ -1989,7 +1989,7 @@ stack exec -- hpc-codecov --verbose -o coverage.json "${TIX_PATH}" -m "${MIX_DIR
 ::
 :: Project:  {{name}}
 :: File:     run_coverage.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 @echo off
@@ -2025,7 +2025,7 @@ GOTO :EOF
 #
 # Project:  {{name}}
 # File:     run_coverage.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 HPC_ROOT_DIR=$(stack path --local-hpc-root)
@@ -2041,7 +2041,7 @@ stack exec -- hpc-lcov --file "${TIX_PATH}"
 ::
 :: Project:  {{name}}
 :: File:     run_haddock.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Run Haddock to generate the library's reference dcumentation to doc/html.
@@ -2055,7 +2055,7 @@ stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 #
 # Project:  {{name}}
 # File:     run_haddock.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 # Run Haddock to generate the library's reference dcumentation to doc/html.
@@ -2068,7 +2068,7 @@ stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 ::
 :: Project:  {{name}}
 :: File:     run_hoogle.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: indexes the project's dependencies and displays the search.
@@ -2083,7 +2083,7 @@ stack hoogle -- server --local --port=8080
 #
 # Project:  {{name}}
 # File:     run_hoogle.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 
 # indexes the project's dependencies and displays the search.
@@ -2097,7 +2097,7 @@ stack hoogle -- server --local --port=8080
 ::
 :: Project:  {{name}}
 :: File:     run_watch.bat
-:: Date:     21.05.2021
+::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Watches for file changes to rebuild and rerun the tests.
@@ -2110,7 +2110,7 @@ stack test --fast --haddock-deps --file-watch
 #
 # Project:  {{name}}
 # File:     run_watch.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 # Watches for file changes to rebuild and rerun the tests.
 stack test --fast --haddock-deps --file-watch
@@ -2122,7 +2122,7 @@ stack test --fast --haddock-deps --file-watch
 #
 # Project:  {{name}}
 # File:     get_changelog.sh
-# Date:     21.05.2021
+#
 ###############################################################################
 # Returns the newest part of the changelog `CHANGELOG.md`.
 # For use with automatic releases.
@@ -2151,7 +2151,7 @@ fi
 --
 -- Project:  {{name}}
 -- File:     Lib.hs
--- Date:     21.05.2021
+--
 --
 --------------------------------------------------------------------------------
 
@@ -2219,7 +2219,7 @@ goldenRatio numDig = goldenHelper numDig 3
 --
 -- Project:  {{name}}
 -- File:     FibonacciSpec.hs
--- Date:     21.05.2021
+--
 --
 --------------------------------------------------------------------------------
 
@@ -2322,7 +2322,7 @@ checkFibonacci list =
 --
 -- Project:  {{name}}
 -- File:     GoldenRatioSpec.hs
--- Date:     21.05.2021
+--
 --
 --------------------------------------------------------------------------------
 
@@ -2391,7 +2391,7 @@ spec = do
 --
 -- Project:  {{name}}
 -- File:     Spec.hs
--- Date:     21.05.2021
+--
 --
 --------------------------------------------------------------------------------
 {-# OPTIONS_GHC -F -pgmF hspec-discover #-}

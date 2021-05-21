@@ -491,7 +491,7 @@ Directory `./.github/workflows/`:
 !!! Warning
     The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/Release-Candidate/HaskellTemplate/tree/main/.github/workflows).
 
-- `./.github/../../.github/workflows/create_packages.yml`. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend. Build the executable(s) on all 3 OSes and appends them to the GitHub release.
+- `.github/workflows/create_packages.yml`. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend. Build the executable(s) on all 3 OSes and appends them to the GitHub release.
 - `./.github/workflows/linux_test.yml` - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/osx_test.yml` - Run tests and coverage tests on Mac OS X in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/windows_test.yml` - Run tests and coverage tests on Windows in 2 jobs, upload the coverage results to Codecov.
