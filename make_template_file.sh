@@ -18,7 +18,7 @@ PROJECT_NAME="TestHaskell"
 PROJECT_PH="{{name}}"
 
 GITUSER_NAME="Release-Candidate"
-GITUSER_PH="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+GITUSER_PH="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}"
 
 LICENSE_NAME="MIT"
 LICENSE_PH="{{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}"

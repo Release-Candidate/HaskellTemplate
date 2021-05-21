@@ -158,7 +158,7 @@ Read the Docs automatically generates the MkDocs documentation after each `git p
 
 #### GitHub Documentation
 
-The Markdown documentation for GitHub are the files [README.md](https://github.com/Release-Candidate/TestHaskell-calendar/blob/main/README.md) and [CHANGELOG.md](https://github.com/Release-Candidate/TestHaskell-calendar/blob/main/CHANGELOG.md) in the project root directory.
+The Markdown documentation for GitHub are the files [README.md](https://github.com/Release-Candidate/TestHaskell/blob/main/README.md) and [CHANGELOG.md](https://github.com/Release-Candidate/TestHaskell/blob/main/CHANGELOG.md) in the project root directory.
 
 ### Haskell Source
 
