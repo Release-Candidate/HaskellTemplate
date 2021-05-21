@@ -52,23 +52,23 @@ for FILE_NAME in ${FILE_LIST}; do
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.hs$" )" == "1" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.sh$" )" == "1" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     elif [ "$(echo "${FILE_NAME}" | grep -c ".*\.bat$" )" == "1" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     elif [ "${FILE_NAME}" == "LICENSE" ]; then
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
 
     else
         sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${LICENSE_NAME}"'@'"${LICENSE_PH}"'@g' "${FILE_NAME}" \
-        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
+        | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@@'
     fi
     echo ""
     } >> "${TEMPLATE_FILE}"
