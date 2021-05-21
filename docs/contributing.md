@@ -335,6 +335,7 @@ which run all these steps to generate the LCov result file `./lcov.info`.
 ## CodeCov Configuration
 
 - [./codecov.yml](https://github.com/Release-Candidate/HaskellTemplate/blob/main/codecov.yml) - CodeCov configuration file, lists all files to be ignored in coverage result calculations:
+
 ```YAML
   ignore:
     - "./test/"
