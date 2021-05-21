@@ -8,6 +8,23 @@ You can either use this GitHub template repository as a GitHub template for a Ha
 stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
+This template needs the following (usual) parameters to be defined:
+
+- author-email
+- author-name
+- github-username
+- copyright
+
+It also understands the parameter
+
+- license-name - to set the name of the licenses to something else but `MIT`.
+
+This parameters can be set in a global or user `config.yaml` file for Stack or passed as command line arguments like this:
+
+```shell
+stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
+```
+
 Information on how to install Stack you find [below](#haskell-stack).
 
 !!! Warning

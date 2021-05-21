@@ -41,7 +41,7 @@ You can either use this GitHub template repository as a GitHub template for a Ha
 stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
-This Template needs the following (usual) parameters to be defined:
+This template needs the following (usual) parameters to be defined:
 
 - author-email
 - author-name
@@ -55,7 +55,7 @@ It also understands the parameter
 This parameters can be set in a global or user `config.yaml` file for Stack or passed as command line arguments like this:
 
 ```shell
-stack new TemplateXXXXX https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
+stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
 ```
 
 :warning: Warning!
