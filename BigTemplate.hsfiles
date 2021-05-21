@@ -1764,7 +1764,6 @@ copyright: "{{copyright}}{{^copyright}}{{year}}{{^year}}"2021"{{/year}} {{author
 extra-source-files:
   - README.md
   - CHANGELOG.md
-  - LICENSE
 
 # Metadata used when publishing your package
 # synopsis:            Short description of your package
