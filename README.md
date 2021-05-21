@@ -2,6 +2,8 @@
 
 This is a Haskell Github template repository and Stack template file. The whole repository is contained in the Stack template [BigTemplate.hsfiles](./BigTemplate.hsfiles).
 
+It uses [Stack](https://docs.haskellstack.org/en/stable/README/) to manage the build and dependencies, [Hspec](https://hspec.github.io/) as testing framework and to automatically discover test cases and [QuickCheck](http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html), [LeanCheck](https://github.com/rudymatela/leancheck#readme), [SmallCheck](https://hackage.haskell.org/package/smallcheck) and [Hedgehog](https://hedgehog.qa/).
+
 To use it, see section [Usage](#usage).
 
 [Below is actually text for usage in the project later, not needed for this template.]
@@ -39,6 +41,19 @@ You can either use this GitHub template repository as a GitHub template for a Ha
 stack new PROJECT_NAME https://raw.githubusercontent.com/Release-Candidate/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
+:warning: Warning!
+
+The GitHub Workflow templates
+
+- [.github/workflows/create_packages.yml](./.github/workflows/create_packages.yml)
+- [.github/workflows/linux_test.yml](./.github/workflows/linux_test.yml)
+- [.github/workflows/osx_test.yml](./.github/workflows/osx_test.yml)
+- [.github/workflows/windows_test.yml](./.github/workflows/windows_test.yml)
+
+are not included in the Stack template, because they contain Mustache fields themselves and would get mangled by using `stack new`. So please download the directory [.github/workflows/](./.github/workflows/) manually.
+
+See also [documentation at Read the Docs](https://haskelltemplate.readthedocs.io/en/latest/contributing/#developing-testhaskell).
+
 ### Haskell and Stack
 
 You need [Stack](https://docs.haskellstack.org/en/stable/README/) to install everything else (Stack installs the GHC, the Haskell compiler too). Install that using your distributions package manager, Homebrew on Macs or Chocolatey on Windows or use another way - see [Stack - Howto Install](https://docs.haskellstack.org/en/stable/README/#how-to-install).
@@ -68,6 +83,8 @@ stack build
 ```
 
 should successfully build the template project.
+
+See also [documentation at Read the Docs](https://haskelltemplate.readthedocs.io/en/latest/contributing/#developing-testhaskell).
 
 ### MkDocs and Pipenv
 
@@ -113,6 +130,8 @@ in the root directory (`PROJECT_NAME`) and connect to the running webserver at [
 This preview shows changes in realtime, so any changes to the markdown files in `docs` you
 see as preview as soon as you save the file. The generated HTML files are saved in the directory
 `sites`.
+
+See also [documentation at Read the Docs](https://haskelltemplate.readthedocs.io/en/latest/contributing/#developing-testhaskell).
 
 ### What is What?
 
@@ -227,6 +246,10 @@ Directory [`.github/ISSUE_TEMPLATE`](./github/ISSUE_TEMPLATE/):
 - [feature_request.md](./.github/ISSUE_TEMPLATE/feature_request.md) - Feature request template for GitHub
 
 Directory [`.github/workflows/`](./.github/workflows/):
+
+:warning: Warning!
+
+The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/Release-Candidate/HaskellTemplate/tree/main/.github/workflows).
 
 - [create_packages.yml](./.github/workflows/create_packages.yml) - A GitHub workflow to build the executable(s), install them to `./bin` and create a GitHub release (like [Latest Release at GitHub](https://github.com/Release-Candidate/HaskellTemplate/releases/latest)). This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
 - [linux_test.yml](./.github/workflows/linux_test.yml) - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.

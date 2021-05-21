@@ -25,8 +25,8 @@ nav:
       - "Issue Tracker at GitHub": "https://github.com/Release-Candidate/TestHaskell/issues"
   - "Installation & Usage":
       - "Installation & Usage": usage.md
-      - License: license.md
-  - "Reference Documentation":
+      - "License": license.md
+  - "API Documentation":
       - "Library Reference": html/index.html
   - Contributing:
       - Contributing: contributing.md

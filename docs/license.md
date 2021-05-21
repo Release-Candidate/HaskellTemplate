@@ -1,6 +1,6 @@
 # License
 
-Tzolkin is licensed under the MIT license:
+TestHaskell is licensed under the MIT license:
 
 ```text
 
