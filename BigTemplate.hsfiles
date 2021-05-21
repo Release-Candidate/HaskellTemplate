@@ -259,7 +259,7 @@ Detailed documentation can be found at [Read the Docs](https://haskelltemplate.r
 
 [![Haskell badge](https://img.shields.io/badge/uses-Haskell-brightgreen?style=flat)](https://www.haskell.org/)
 [![HSpec badge](https://img.shields.io/badge/uses-Hspec-brightgreen?style=flat)](https://hspec.github.io/)
-[![GitHub License badge](https://img.shields.io/github/license/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/LICENSE)
+[![GitHub License badge](https://img.shields.io/github/license/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/LICENSE)
 [![Documentation Status](https://readthedocs.org/projects/haskelltemplate/badge/?version=latest)](https://haskelltemplate.readthedocs.io/en/latest/?badge=latest)
 [more badges ...](#badges)
 
@@ -280,10 +280,10 @@ Detailed documentation can be found at [Read the Docs](https://haskelltemplate.r
 
 ## Usage
 
-You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `{{name}}`, `{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}` and my name. Or use [BigTemplate.hsfiles](./BigTemplate.hsfiles) to generate a local project from this repository, using `stack new`:
+You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `{{name}}`, `{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}` and my name. Or use [BigTemplate.hsfiles](./BigTemplate.hsfiles) to generate a local project from this repository, using `stack new`:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 This template needs the following (usual) parameters to be defined:
@@ -300,7 +300,7 @@ It also understands the parameter
 This parameters can be set in a global or user `config.yaml` file for Stack or passed as command line arguments like this:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
 ```
 
 :warning: Warning!
@@ -316,6 +316,19 @@ are not included in the Stack template, because they contain Mustache fields the
 
 See also [documentation at Read the Docs](https://haskelltemplate.readthedocs.io/en/latest/contributing/#developing-testhaskell).
 
+As soon as the project ist checked in to Git, you must set the executable bit of all shell scripts, because they are not executable when generated from the templates. Run the script
+
+- [./make_sh_executable.bat](./make_sh_executable.bat) - for Windows
+- [./make_sh_executable.sh](./make_sh_executable.sh) - for Unix
+
+This script recursively calls
+
+```shell
+git add --chmod=+x SHELL_SCRIPT
+```
+
+for all shell scripts in the directory
+
 ### Haskell and Stack
 
 You need [Stack](https://docs.haskellstack.org/en/stable/README/) to install everything else (Stack installs the GHC, the Haskell compiler too). Install that using your distributions package manager, Homebrew on Macs or Chocolatey on Windows or use another way - see [Stack - Howto Install](https://docs.haskellstack.org/en/stable/README/#how-to-install).
@@ -323,7 +336,7 @@ You need [Stack](https://docs.haskellstack.org/en/stable/README/) to install eve
 To generate a new project named `PROJECT_NAME` using this template, you have to call `stack new` with it:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 Enter the directory `PROJECT_NAME` and execute
@@ -511,9 +524,9 @@ Directory [`.github/workflows/`](./.github/workflows/):
 
 :warning: Warning!
 
-The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/tree/main/.github/workflows).
+The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/tree/main/.github/workflows).
 
-- [create_packages.yml](./.github/workflows/create_packages.yml) - A GitHub workflow to build the executable(s), install them to `./bin` and create a GitHub release (like [Latest Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases/latest)). This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
+- [create_packages.yml](./.github/workflows/create_packages.yml) - A GitHub workflow to build the executable(s), install them to `./bin` and create a GitHub release (like [Latest Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/releases/latest)). This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
 - [linux_test.yml](./.github/workflows/linux_test.yml) - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.
 - [osx_test.yml](./.github/workflows/osx_test.yml) - Run tests and coverage tests on Mac OS X in 2 jobs, upload the coverage results to Codecov.
 - [windows_test.yml](./.github/workflows/windows_test.yml) - Run tests and coverage tests on Windows in 2 jobs, upload the coverage results to Codecov.
@@ -527,10 +540,10 @@ The GitHub workflow files are not included in the Stack template, because they u
   nav:
   - Home: index.md
   - Project Links:
-      - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest
-      - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
-      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new/choose"
-      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues"
+      - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest
+      - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues/new/choose"
+      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues"
   - "Installation & Usage":
       - "Installation & Usage": usage.md
       - License: license.md
@@ -594,23 +607,23 @@ The Haskell source consists of three parts, the library in the directory `src`, 
 
 That's actually just a placeholder for real text, in this template repo you only get to download a Fibonacci and golden ration command line program for Linux, OS X and Windows.
 
-Download the latest release: [Latest Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases/latest)
+Download the latest release: [Latest Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/releases/latest)
 
 Changelog of all versions: [CHANGELOG.md](./CHANGELOG.md)
 
-All releases: [All Releases at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases)
+All releases: [All Releases at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/releases)
 
 ## Badges
 
 ### GitHub Workflows
 
-[![Tests Mac OS X latest](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/osx_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/osx_test.yml)
-[![Tests Ubuntu 20.04](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/linux_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/linux_test.yml)
-[![Tests Windows 2019](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/windows_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/actions/workflows/windows_test.yml)
+[![Tests Mac OS X latest](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/actions/workflows/osx_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/actions/workflows/osx_test.yml)
+[![Tests Ubuntu 20.04](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/actions/workflows/linux_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/actions/workflows/linux_test.yml)
+[![Tests Windows 2019](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/actions/workflows/windows_test.yml/badge.svg)](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/actions/workflows/windows_test.yml)
 
 ### CodeCov Coverage Report
 
-[![codecov](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/branch/main/graph/badge.svg?token=L988V53VRA)](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate)
+[![codecov](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/branch/main/graph/badge.svg?token=L988V53VRA)](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate)
 
 {-# START_FILE Setup.hs #-}
 import Distribution.Simple
@@ -776,9 +789,9 @@ If you encounter a problem using {{name}}, a task it not as easy as you'd like i
 
 Please help making {{name}} better by filing bug reports and feature requests.
 
-File a bug report at [Github](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new?assignees=&labels=&template=bug_report.md&title=).
-Add a feature request at [Github](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new?assignees=&labels=&template=feature_request.md&title=).
-Take a look at the [Issue Tracker at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues)
+File a bug report at [Github](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues/new?assignees=&labels=&template=bug_report.md&title=).
+Add a feature request at [Github](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues/new?assignees=&labels=&template=feature_request.md&title=).
+Take a look at the [Issue Tracker at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues)
 
 ## Forking the Repository
 
@@ -808,7 +821,7 @@ See
 - [Using Python on a Macintosh](https://docs.python.org/3/using/mac.html)
 - [Using Python on Unix Platforms](https://docs.python.org/3/using/unix.html)
 
-In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/Pipfile) there is a stanza saying
+In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/Pipfile) there is a stanza saying
 
 ```ini
 [requires]
@@ -848,10 +861,10 @@ This preview shows changes in realtime, so any changes to the markdown files in 
   nav:
     - Home: index.md
     - Project Links:
-        - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest
-        - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
-        - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new/choose"
-        - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues"
+        - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest
+        - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+        - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues/new/choose"
+        - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues"
     - "Installation & Usage":
         - "Installation & Usage": usage.md
         - "License": license.md
@@ -875,8 +888,8 @@ stack stack haddock
 
 In the project root there are the two scripts
 
-- [run_haddock.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/run_haddock.bat)
-- [run_haddock.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/run_haddock.sh)
+- [run_haddock.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/run_haddock.bat)
+- [run_haddock.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/run_haddock.sh)
 which let Haddock generate the API documentation in the directory `docs/html` using the command
 
 ```shell
@@ -897,7 +910,7 @@ Read the Docs automatically generates the MkDocs documentation after each `git p
 
 #### GitHub Documentation
 
-The Markdown documentation for GitHub are the files [README.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}-calendar/blob/main/README.md) and [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}-calendar/blob/main/CHANGELOG.md) in the project root directory.
+The Markdown documentation for GitHub are the files [README.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/README.md) and [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/CHANGELOG.md) in the project root directory.
 
 ### Haskell Source
 
@@ -907,7 +920,7 @@ Before you can use the configured Tools of this project, you have to download an
 
 To generate the documentation using MkDocs (see [Changing and Generating Documentation](#changing-and-generating-documentation)), a virtual Python environment is needed. So, first you need to install Python, if you don't have it installed already - either from your distributions repository, using the XCode or [Homebrew](https://brew.sh/) version, or getting it from [Python.org](https://www.python.org/downloads/).
 
-In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/Pipfile) there is a stanza saying
+In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/Pipfile) there is a stanza saying
 
 ```ini
 [requires]
@@ -963,8 +976,8 @@ stack --version
 
 it's time to install all needed tools for the project. There are two scripts
 
-- [./install_build_tools.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/install_build_tools.bat) on Windows
-- [./install_build_tools.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/install_build_tools.sh) on a unixish OS like Linux or Mac OS X
+- [./install_build_tools.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/install_build_tools.bat) on Windows
+- [./install_build_tools.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/install_build_tools.sh) on a unixish OS like Linux or Mac OS X
 
 that do that for us. The scripts call the following commands:
 
@@ -992,21 +1005,21 @@ The sources of the project's library are located in the directory `src`, the exe
 
 All sources of the library `Lib` reside in the directory `./src`.
 
-- [./src/Lib.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/src/Lib.hs) - The module `Lib` containing  some functions to calculate the Fibonacci sequence and the golden ratio.
+- [./src/Lib.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/src/Lib.hs) - The module `Lib` containing  some functions to calculate the Fibonacci sequence and the golden ratio.
 
 ##### Executable Sources
 
 Sources needed to build the executable `{{name}}-exe` are contained in the directory `./app`.
 
-- [./app/Main.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/app/Main.hs) - The main entry point of the executable, parses the command line and calls the Fibonacci and golden ratio functions.
+- [./app/Main.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/app/Main.hs) - The main entry point of the executable, parses the command line and calls the Fibonacci and golden ratio functions.
 
 ##### Test Sources
 
 All test cases and everything test related: directory `./test`. Uses [Hspec](https://hspec.github.io/) as testing framework and to automatically discover the tests. And [QuickCheck](http://www.cse.chalmers.se/~rjmh/QuickCheck/manual.html), [LeanCheck](https://github.com/rudymatela/leancheck#readme), [SmallCheck](https://hackage.haskell.org/package/smallcheck) and [Hedgehog](https://hedgehog.qa/).
 
-- [./test/Spec.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/test/Spec.hs) - The main entry point of the test, contains no source code, just the header to let HSpec automatically discover the other test sources.
-- [./test/FibonacciSpec.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/test/FibonacciSpec.hs) - Test the Fibonacci number generation.
-- [./test/GoldenRatioSpec.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/test/GoldenRatioSpec.hs) - Test the golden ratio calculations.
+- [./test/Spec.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/test/Spec.hs) - The main entry point of the test, contains no source code, just the header to let HSpec automatically discover the other test sources.
+- [./test/FibonacciSpec.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/test/FibonacciSpec.hs) - Test the Fibonacci number generation.
+- [./test/GoldenRatioSpec.hs](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/test/GoldenRatioSpec.hs) - Test the golden ratio calculations.
 
 #### Build
 
@@ -1038,8 +1051,8 @@ stack test --fast --haddock-deps --file-watch
 
 This is also what the two scripts
 
-- [./run_watch.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/run_watch.bat)
-- [./run_watch.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/run_watch.sh)
+- [./run_watch.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/run_watch.bat)
+- [./run_watch.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/run_watch.sh)
 
 do when they are called.
 
@@ -1066,22 +1079,22 @@ stack path --local-hpc-root
 
 There exists two scripts
 
-- [./run_coverage.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/run_coverage.bat)
-- [./run_coverage.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/run_coverage.sh)
+- [./run_coverage.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/run_coverage.bat)
+- [./run_coverage.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/run_coverage.sh)
 
 which run all these steps to generate the LCov result file `./lcov.info`.
 
 ## CodeCov Configuration
 
-- [./codecov.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/codecov.yml) - CodeCov configuration file, lists all files to be ignored in coverage result calculations:
+- [./codecov.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/codecov.yml) - CodeCov configuration file, lists all files to be ignored in coverage result calculations:
 
 ```YAML
   ignore:
     - "./test/"
 ```
 
-Used in the workflows [linux_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/.github/workflows/linux_test.yml),
-[osx_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/.github/workflows/osx_test.yml) and [windows_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/.github/workflows/windows_test.yml) - see [GitHub Workflows](#github-workflows)
+Used in the workflows [linux_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/.github/workflows/linux_test.yml),
+[osx_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/.github/workflows/osx_test.yml) and [windows_test.yml](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/.github/workflows/windows_test.yml) - see [GitHub Workflows](#github-workflows)
 
 ## GitHub Workflows
 
@@ -1089,14 +1102,14 @@ All tests and builds are executed on Linux, Mac OS X and Windows.
 
 !!! Warning
 
-    The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/tree/main/.github/workflows).
+    The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/tree/main/.github/workflows).
 
 These are the GitHub workflows defined in the directory `.github/workflows`
 
 - `create_packages.yml` creates and uploads the executable an each OS (Linux, Mac OS X and Windows) and
   generates a new GitHUb release with these files appended. Runs automatically after tagging
-  the source with a release tag of the form `v?.?.?`. Appends the newest entry in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/scripts/get_changelog.sh)
-  See the [latest release](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest) as an example
+  the source with a release tag of the form `v?.?.?`. Appends the newest entry in [CHANGELOG.md](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/scripts/get_changelog.sh)
+  See the [latest release](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest) as an example
 - `linux_test.yml` runs the tests and coverage tests on Linux, uploads the test results as artifacts,
   uploads the coverage results to CodeCov.
 - `osx_test.yml` runs the tests and coverage tests on Mac OS X, uploads the test results as artifacts,
@@ -1104,7 +1117,7 @@ These are the GitHub workflows defined in the directory `.github/workflows`
 - `windows_test.yml` runs the tests and coverage tests on Windows, uploads the test results as artifacts,
   uploads the coverage results to CodeCov.
 
-The badges of the workflows are linked in the section [Badges](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}#badges )
+The badges of the workflows are linked in the section [Badges](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}#badges )
 
 ## GitHub Issue Templates
 
@@ -1228,9 +1241,9 @@ Directory `./github/ISSUE_TEMPLATE/`:
 Directory `./.github/workflows/`:
 
 !!! Warning
-    The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/tree/main/.github/workflows).
+    The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/tree/main/.github/workflows).
 
-- `https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/releases/latest``. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
+- `https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/releases/latest``. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
 - `./.github/workflows/linux_test.yml` - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/osx_test.yml` - Run tests and coverage tests on Mac OS X in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/windows_test.yml` - Run tests and coverage tests on Windows in 2 jobs, upload the coverage results to Codecov.
@@ -1244,10 +1257,10 @@ Directory `./.github/workflows/`:
 nav:
 - Home: index.md
 - Project Links:
-    - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest
-    - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
-    - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new/choose"
-    - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues"
+    - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest
+    - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+    - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues/new/choose"
+    - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues"
 - "Installation & Usage":
     - "Installation & Usage": usage.md
     - License: license.md
@@ -1310,7 +1323,7 @@ stack exec code-insiders {{name}}.code-workspace
 {-# START_FILE docs/index.md #-}
 # {{name}}
 
-This is a Haskell Github template repository and Stack template file. The whole repository is contained in the Stack template [BigTemplate.hsfiles](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/BigTemplate.hsfiles)
+This is a Haskell Github template repository and Stack template file. The whole repository is contained in the Stack template [BigTemplate.hsfiles](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/BigTemplate.hsfiles)
 
 Information about the [Usage](./usage.md).
 
@@ -1367,10 +1380,10 @@ python-markdown-math==0.8
 
 ## Installation
 
-You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `{{name}}`, `{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}` and my name. Or use `BigTemplate.hsfiles` to generate a local project from this repository, using `stack new`:
+You can either use this GitHub template repository as a GitHub template for a Haskell project and manually change all occurrences of `{{name}}`, `{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}` and my name. Or use `BigTemplate.hsfiles` to generate a local project from this repository, using `stack new`:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/main/BigTemplate.hsfiles
 ```
 
 This template needs the following (usual) parameters to be defined:
@@ -1387,7 +1400,7 @@ It also understands the parameter
 This parameters can be set in a global or user `config.yaml` file for Stack or passed as command line arguments like this:
 
 ```shell
-stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
+stack new PROJECT_NAME https://raw.githubusercontent.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/main/BigTemplate.hsfiles -p "author-email:EMAIL" -p "author-name:NAME" -p "github-username:GITUSER" -p "license-name:BSD" -p "copyright:(C) ..."
 ```
 
 Information on how to install Stack you find [below](#haskell-stack).
@@ -1400,13 +1413,26 @@ Information on how to install Stack you find [below](#haskell-stack).
     - [.github/workflows/windows_test.yml](./.github/workflows/windows_test.yml)
     are not included in the Stack template, because they contain Mustache fields themselves and would get mangled by using `stack new`. So please download the directory [.github/workflows/](./.github/workflows/) manually.
 
+As soon as the project ist checked in to Git, you must set the executable bit of all shell scripts, because they are not executable when generated from the templates. Run the script
+
+- [./make_sh_executable.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/make_sh_executable.bat) - for Windows
+- [./make_sh_executable.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/make_sh_executable.sh) - for Unix
+
+This script recursively calls
+
+```shell
+git add --chmod=+x SHELL_SCRIPT
+```
+
+for all shell scripts in the directory.
+
 Before you can use the configured Tools of this project, you have to download and install the needed tools.
 
 #### Pipenv and MkDocs
 
 To generate the documentation using MkDocs (see [Changing and Generating Documentation](#changing-and-generating-documentation)), a virtual Python environment is needed. So, first you need to install Python, if you don't have it installed already - either from your distributions repository, using the XCode or [Homebrew](https://brew.sh/) version, or getting it from [Python.org](https://www.python.org/downloads/).
 
-In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/blob/main/Pipfile) there is a stanza saying
+In the file [`Pipfile`](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/blob/main/Pipfile) there is a stanza saying
 
 ```ini
 [requires]
@@ -1462,8 +1488,8 @@ stack --version
 
 it's time to install all needed tools for the project. There are two scripts
 
-- [./install_build_tools.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/install_build_tools.bat) on Windows
-- [./install_build_tools.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/install_build_tools.sh) on a unixish OS like Linux or Mac OS X
+- [./install_build_tools.bat](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/install_build_tools.bat) on Windows
+- [./install_build_tools.sh](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/HaskellTemplate/blob/main/install_build_tools.sh) on a unixish OS like Linux or Mac OS X
 
 that do that for us. The scripts call the following commands:
 
@@ -1486,7 +1512,7 @@ so afterwards we can use [HLint](https://hackage.haskell.org/package/hlint-1.7/s
 ### Download
 
 [This is for the project template, not the Stack template]
-Download the latest release at GitHub: [Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest)
+Download the latest release at GitHub: [Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest)
 
 {-# START_FILE hie.yaml #-}
 cradle:
@@ -1620,8 +1646,8 @@ IGNORE_ALL="make_template.sh"
 PROJECT_NAME="{{name}}"
 PROJECT_PH="{{name}}"
 
-GITUSER_NAME="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
-GITUSER_PH="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+GITUSER_NAME="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}"
+GITUSER_PH="{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}"
 
 LICENSE_NAME="MIT"
 LICENSE_PH="{{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}"
@@ -1690,7 +1716,7 @@ done
 site_name: {{name}}
 
 site_url: https://readthedocs.org/projects/{{name}}/
-#repo_url: https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}
+#repo_url: https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}
 #repo_name: GitHub
 #copyright: (C) {{copyright}}{{^copyright}}{{year}}{{^year}}"2021"{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}
 
@@ -1700,10 +1726,10 @@ site_dir: site
 nav:
   - Home: index.md
   - Project Links:
-      - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest
-      - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
-      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues/new/choose"
-      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/issues"
+      - "Downloads": https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/releases/latest
+      - "GitHub Project Page": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
+      - "Report a Bug or a Feature Request": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues/new/choose"
+      - "Issue Tracker at GitHub": "https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/issues"
   - "Installation & Usage":
       - "Installation & Usage": usage.md
       - "License": license.md
@@ -1755,7 +1781,7 @@ plugins:
 ###############################################################################
 name: {{name}}
 version: 0.1.0.0
-github: "{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}"
+github: "{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}"
 license: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
 author: "{{author-name}}{{^author-name}}Author name here{{/author-name}}"
 maintainer: "{{author-email}}{{^author-email}}YOUR_EMAIL@example.com{{/author-email}}"
@@ -1772,7 +1798,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description: Please see the README on GitHub at <https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}#readme>
+description: Please see the README on GitHub at <https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}#readme>
 
 dependencies:
   - base >= 4.7 && < 5
