@@ -356,8 +356,8 @@ These are the GitHub workflows defined in the directory `.github/workflows`
 
 - `create_packages.yml` creates and uploads the executable an each OS (Linux, Mac OS X and Windows) and
   generates a new GitHUb release with these files appended. Runs automatically after tagging
-  the source with a release tag of the form `v?.?.?`. Appends the newest entry in [CHANGELOG.md](https://github.com/Release-Candidate/TestHaskell/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/Release-Candidate/TestHaskell/blob/main/scripts/get_changelog.sh)
-  See the [latest release](https://github.com/Release-Candidate/TestHaskell/releases/latest) as an example
+  the source with a release tag of the form `v?.?.?`. Appends the newest entry in [CHANGELOG.md](https://github.com/Release-Candidate/HaskellTemplate/blob/main/CHANGELOG.md) to the release - script [`scripts/get_changelog.sh`](https://github.com/Release-Candidate/TestHaskell/blob/main/scripts/get_changelog.sh)
+  See the [latest release](https://github.com/Release-Candidate/HaskellTemplate/releases/latest) as an example
 - `linux_test.yml` runs the tests and coverage tests on Linux, uploads the test results as artifacts,
   uploads the coverage results to CodeCov.
 - `osx_test.yml` runs the tests and coverage tests on Mac OS X, uploads the test results as artifacts,
@@ -491,7 +491,7 @@ Directory `./.github/workflows/`:
 !!! Warning
     The GitHub workflow files are not included in the Stack template, because they use Moustache fields themselves and get mangled by `stack new`. To use them, you have to download them from [GitHub](https://github.com/Release-Candidate/HaskellTemplate/tree/main/.github/workflows).
 
-- `https://github.com/Release-Candidate/HaskellTemplate/releases/latest``. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend.
+- `./.github/../../.github/workflows/create_packages.yml`. This workflow runs on all 3 GitHub OSes, Linux, Mac OS X and Windows, it is started after tagging the source with a release tag of the form `v.?.?.?` or manually creating a release using GitHubs web-frontend. Build the executable(s) on all 3 OSes and appends them to the GitHub release.
 - `./.github/workflows/linux_test.yml` - Run tests and coverage tests on Linux in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/osx_test.yml` - Run tests and coverage tests on Mac OS X in 2 jobs, upload the coverage results to Codecov.
 - `./.github/workflows/windows_test.yml` - Run tests and coverage tests on Windows in 2 jobs, upload the coverage results to Codecov.
