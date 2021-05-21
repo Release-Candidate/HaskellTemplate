@@ -1,4 +1,4 @@
-{-# START_FILE .gitattributes ) #-}
+{-# START_FILE .gitattributes #-}
 # Set line endings to auto.
 * text=auto
 
@@ -18,7 +18,7 @@
 *.png binary
 *.jpg binary
 
-{-# START_FILE .github/ISSUE_TEMPLATE/bug_report.md ) #-}
+{-# START_FILE .github/ISSUE_TEMPLATE/bug_report.md #-}
 ---
 name: Bug report
 about: Create a report to help us improve
@@ -50,7 +50,7 @@ Add screenshots or your code or copy error messages to help explain your problem
 **Additional context**
 Add any other context about the problem here.
 
-{-# START_FILE .github/ISSUE_TEMPLATE/feature_request.md ) #-}
+{-# START_FILE .github/ISSUE_TEMPLATE/feature_request.md #-}
 ---
 name: Feature request
 about: Suggest an idea for this project
@@ -72,7 +72,7 @@ A clear and concise description of any alternative solutions or features you've 
 **Additional context**
 Add any other context or screenshots about the feature request here.
 
-{-# START_FILE .gitignore ) #-}
+{-# START_FILE .gitignore #-}
 # Bak files
 *~
 
@@ -108,7 +108,7 @@ lcov.info
 # don't need the lockfile, Pipfile is for mkdocs only
 Pipfile.lock
 
-{-# START_FILE .readthedocs.yaml ) #-}
+{-# START_FILE .readthedocs.yaml #-}
 # .readthedocs.yaml
 # Read the Docs configuration file
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
@@ -126,7 +126,7 @@ python:
    install:
    - requirements: docs/requirements.txt
 
-{-# START_FILE .vscode/tasks.json ) #-}
+{-# START_FILE .vscode/tasks.json #-}
 {
   // Automatically created by phoityne-vscode extension.
   "version": "2.0.0",
@@ -188,7 +188,7 @@ python:
   ]
 }
 
-{-# START_FILE CHANGELOG.md ) #-}
+{-# START_FILE CHANGELOG.md #-}
 # {{name}} Changelog
 
 ## Version 0.9.3 (2021-05-18)
@@ -203,7 +203,7 @@ Add package generation on OS X and Windows.
 
 Initial Release
 
-{-# START_FILE LICENSE ) #-}
+{-# START_FILE LICENSE #-}
 MIT License
 
 Copyright (c) {{copyright}}{{^copyright}}{{year}}{{^year}}"2021"{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}
@@ -226,7 +226,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-{-# START_FILE Pipfile ) #-}
+{-# START_FILE Pipfile #-}
 [[source]]
 url = "https://pypi.org/simple"
 verify_ssl = true
@@ -242,7 +242,7 @@ python-markdown-math = "*"
 [requires]
 python_version = "3.9"
 
-{-# START_FILE README.md ) #-}
+{-# START_FILE README.md #-}
 # {{name}}
 
 This is a Haskell Github template repository and Stack template file. The whole repository is contained in the Stack template [BigTemplate.hsfiles](./BigTemplate.hsfiles).
@@ -612,11 +612,11 @@ All releases: [All Releases at GitHub](https://github.com/{{github-username}}{{^
 
 [![codecov](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/branch/main/graph/badge.svg?token=L988V53VRA)](https://codecov.io/gh/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate)
 
-{-# START_FILE Setup.hs ) #-}
+{-# START_FILE Setup.hs #-}
 import Distribution.Simple
 main = defaultMain
 
-{-# START_FILE {{name}}.code-workspace ) #-}
+{-# START_FILE {{name}}.code-workspace #-}
 {
 	"folders": [
 		{
@@ -658,7 +658,7 @@ main = defaultMain
 	}
 }
 
-{-# START_FILE app/Main.hs ) #-}
+{-# START_FILE app/Main.hs #-}
 -- SPDX-License-Identifier: MIT
 -- Copyright (C) 2021 Roland Csaszar
 --
@@ -725,7 +725,7 @@ main =
     printf "The golden ratio to the length of %v is: " goldenRatio
     print $ goldenRatio * Lib.goldenRatio 8
 
-{-# START_FILE codecov.yml ) #-}
+{-# START_FILE codecov.yml #-}
 # SPDX-License-Identifier: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
 # Copyright (C) {{copyright}}{{^copyright}}{{year}}{{^year}}"2021"{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}
 #
@@ -736,7 +736,7 @@ main =
 ignore:
     - "./test/"
 
-{-# START_FILE docs/contributing.md ) #-}
+{-# START_FILE docs/contributing.md #-}
 # Contributing
 
 Any help is welcome!
@@ -1307,7 +1307,7 @@ stack exec code-insiders {{name}}.code-workspace
 - `./{{name}}.code-workspace` - The Visual Studio Code workspace file.
 - `./.vscode/` - Directory containing additional Visual Studio Code configuration.
 
-{-# START_FILE docs/index.md ) #-}
+{-# START_FILE docs/index.md #-}
 # {{name}}
 
 This is a Haskell Github template repository and Stack template file. The whole repository is contained in the Stack template [BigTemplate.hsfiles](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/HaskellTemplate/blob/main/BigTemplate.hsfiles)
@@ -1329,7 +1329,7 @@ Further Information about Haskell, Stack and Stack project templates.
 - [Stack](https://docs.haskellstack.org/en/stable/GUIDE/)
 - [Stack Templates](https://docs.haskellstack.org/en/stable/GUIDE/#fun-features)
 
-{-# START_FILE docs/license.md ) #-}
+{-# START_FILE docs/license.md #-}
 # License
 
 {{name}} is licensed under the {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}} license:
@@ -1359,10 +1359,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-{-# START_FILE docs/requirements.txt ) #-}
+{-# START_FILE docs/requirements.txt #-}
 python-markdown-math==0.8
 
-{-# START_FILE docs/usage.md ) #-}
+{-# START_FILE docs/usage.md #-}
 # Installation & Usage
 
 ## Installation
@@ -1488,7 +1488,7 @@ so afterwards we can use [HLint](https://hackage.haskell.org/package/hlint-1.7/s
 [This is for the project template, not the Stack template]
 Download the latest release at GitHub: [Release at GitHub](https://github.com/{{github-username}}{{^github-username}}GITHUB_USER_NAME{{/github-username}}/{{name}}/{{name}}/releases/latest)
 
-{-# START_FILE hie.yaml ) #-}
+{-# START_FILE hie.yaml #-}
 cradle:
   stack:
     - path: "./src"
@@ -1509,7 +1509,7 @@ cradle:
     - path: "./test"
       component: "{{name}}:test:{{name}}-test"
 
-{-# START_FILE install_build_tools.bat ) #-}
+{-# START_FILE install_build_tools.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -1539,7 +1539,7 @@ echo to your PATH or use 'stack exec TOOL'
 
 stack exec gen-hie > hie.yaml
 
-{-# START_FILE install_build_tools.sh ) #-}
+{-# START_FILE install_build_tools.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -1570,7 +1570,7 @@ echo "to your PATH or use 'stack exec TOOL'"
 
 stack exec gen-hie > hie.yaml
 
-{-# START_FILE make_sh_executable.bat ) #-}
+{-# START_FILE make_sh_executable.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -1584,7 +1584,7 @@ stack exec gen-hie > hie.yaml
 
 "C:\Program Files\git\usr\bin\find"  ./ -name "*.sh" -exec git add --chmod=+x {} ;
 
-{-# START_FILE make_sh_executable.sh ) #-}
+{-# START_FILE make_sh_executable.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -1600,7 +1600,7 @@ stack exec gen-hie > hie.yaml
 
 find  ./ -name "*.sh" -exec git add --chmod=+x {} \;
 
-{-# START_FILE make_template_file.sh ) #-}
+{-# START_FILE make_template_file.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -1645,7 +1645,7 @@ if [ -e "${TEMPLATE_FILE}" ]; then
 fi
 
 for FILE_NAME in ${FILE_LIST}; do
-    FILE_HEADER="{-# START_FILE ${FILE_NAME/${PROJECT_NAME}/${PROJECT_PH}} ) #-}"
+    FILE_HEADER="{-# START_FILE ${FILE_NAME/${PROJECT_NAME}/${PROJECT_PH}} #-}"
 
     {
     echo "${FILE_HEADER}"
@@ -1678,7 +1678,7 @@ for FILE_NAME in ${FILE_LIST}; do
 
 done
 
-{-# START_FILE mkdocs.yml ) #-}
+{-# START_FILE mkdocs.yml #-}
 # SPDX-License-Identifier: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
 # Copyright (C) {{copyright}}{{^copyright}}{{year}}{{^year}}"2021"{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}
 #
@@ -1745,7 +1745,7 @@ markdown_extensions:
 plugins:
   - search
 
-{-# START_FILE package.yaml ) #-}
+{-# START_FILE package.yaml #-}
 # SPDX-License-Identifier: {{license-name}}{{^license-name}}YOUR_LICENSE{{/license-name}}
 # Copyright (C) {{copyright}}{{^copyright}}{{year}}{{^year}}"2021"{{/year}} {{author-name}}{{^author-name}}Author name here{{/author-name}}{{/copyright}}
 #
@@ -1862,7 +1862,7 @@ tests:
       - hpc-codecov
       - hpc-lcov
 
-{-# START_FILE run_code.bat ) #-}
+{-# START_FILE run_code.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -1882,7 +1882,7 @@ echo %cd%
 :: Code Insiders:
 stack exec "%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\bin\code-insiders" {{name}}.code-workspace
 
-{-# START_FILE run_code.sh ) #-}
+{-# START_FILE run_code.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -1899,7 +1899,7 @@ stack exec "%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\bin\code-insiders
 # Code Insiders:
 stack exec code-insiders {{name}}.code-workspace
 
-{-# START_FILE run_codecov_coverage.bat ) #-}
+{-# START_FILE run_codecov_coverage.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -1939,7 +1939,7 @@ GOTO :EOF
 set helper_tmp=%*
 GOTO :EOF
 
-{-# START_FILE run_codecov_coverage.sh ) #-}
+{-# START_FILE run_codecov_coverage.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -1957,7 +1957,7 @@ stack clean
 stack test --coverage
 stack exec -- hpc-codecov --verbose -o coverage.json "${TIX_PATH}" -m "${MIX_DIR}/hpc"
 
-{-# START_FILE run_coverage.bat ) #-}
+{-# START_FILE run_coverage.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -1992,7 +1992,7 @@ GOTO :EOF
 set helper_tmp=%*
 GOTO :EOF
 
-{-# START_FILE run_coverage.sh ) #-}
+{-# START_FILE run_coverage.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -2009,7 +2009,7 @@ stack clean
 stack test --coverage
 stack exec -- hpc-lcov --file "${TIX_PATH}"
 
-{-# START_FILE run_haddock.bat ) #-}
+{-# START_FILE run_haddock.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -2022,7 +2022,7 @@ stack exec -- hpc-lcov --file "${TIX_PATH}"
 stack clean
 stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 
-{-# START_FILE run_haddock.sh ) #-}
+{-# START_FILE run_haddock.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -2036,7 +2036,7 @@ stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 stack clean
 stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 
-{-# START_FILE run_hoogle.bat ) #-}
+{-# START_FILE run_hoogle.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -2050,7 +2050,7 @@ stack haddock --haddock-arguments="--odir=docs/html --html --built-in-themes"
 stack hoogle -- generate --local
 stack hoogle -- server --local --port=8080
 
-{-# START_FILE run_hoogle.sh ) #-}
+{-# START_FILE run_hoogle.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -2065,7 +2065,7 @@ stack hoogle -- server --local --port=8080
 stack hoogle -- generate --local
 stack hoogle -- server --local --port=8080
 
-{-# START_FILE run_watch.bat ) #-}
+{-# START_FILE run_watch.bat #-}
 :: SPDX-License-Identifier: MIT
 :: Copyright (C) 2021 Roland Csaszar
 ::
@@ -2077,7 +2077,7 @@ stack hoogle -- server --local --port=8080
 :: Watches for file changes to rebuild and rerun the tests.
 stack test --fast --haddock-deps --file-watch
 
-{-# START_FILE run_watch.sh ) #-}
+{-# START_FILE run_watch.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -2089,7 +2089,7 @@ stack test --fast --haddock-deps --file-watch
 # Watches for file changes to rebuild and rerun the tests.
 stack test --fast --haddock-deps --file-watch
 
-{-# START_FILE scripts/get_changelog.sh ) #-}
+{-# START_FILE scripts/get_changelog.sh #-}
 #!/bin/bash
 # SPDX-License-Identifier: MIT
 # Copyright (C) 2021 Roland Csaszar
@@ -2119,7 +2119,7 @@ else
     head -$((${LINE_NUM_ARRAY[1]} - 1)) ${CHANGELOG_PATH} | tail +${LINE_NUM_ARRAY[0]}
 fi
 
-{-# START_FILE src/Lib.hs ) #-}
+{-# START_FILE src/Lib.hs #-}
 -- SPDX-License-Identifier: MIT
 -- Copyright (C) 2021 Roland Csaszar
 --
@@ -2187,7 +2187,7 @@ goldenRatio numDig = goldenHelper numDig 3
             before :: Double = fromInteger y / fromInteger z
             epsilon = 10.0 ** (- fromIntegral numdig :: Double)
 
-{-# START_FILE test/FibonacciSpec.hs ) #-}
+{-# START_FILE test/FibonacciSpec.hs #-}
 -- SPDX-License-Identifier: MIT
 -- Copyright (C) 2021 Roland Csaszar
 --
@@ -2290,7 +2290,7 @@ checkFibonacci list =
       | z == x + y -> checkFibonacci (y : z : xs)
       | otherwise -> x + y `P.shouldBe` z
 
-{-# START_FILE test/GoldenRatioSpec.hs ) #-}
+{-# START_FILE test/GoldenRatioSpec.hs #-}
 -- SPDX-License-Identifier: MIT
 -- Copyright (C) 2021 Roland Csaszar
 --
@@ -2359,7 +2359,7 @@ spec = do
       ]
       (\e f -> abs (goldenRatioConst - goldenRatio e) `P.shouldSatisfy` (< epsilon (fromIntegral f)))
 
-{-# START_FILE test/Spec.hs ) #-}
+{-# START_FILE test/Spec.hs #-}
 -- SPDX-License-Identifier: MIT
 -- Copyright (C) 2021 Roland Csaszar
 --

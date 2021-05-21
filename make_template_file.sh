@@ -42,7 +42,7 @@ if [ -e "${TEMPLATE_FILE}" ]; then
 fi
 
 for FILE_NAME in ${FILE_LIST}; do
-    FILE_HEADER="{-# START_FILE ${FILE_NAME/${PROJECT_NAME}/${PROJECT_PH}} ) #-}"
+    FILE_HEADER="{-# START_FILE ${FILE_NAME/${PROJECT_NAME}/${PROJECT_PH}} #-}"
 
     {
     echo "${FILE_HEADER}"
