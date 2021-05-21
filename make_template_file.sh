@@ -42,7 +42,7 @@ if [ -e "${TEMPLATE_FILE}" ]; then
 fi
 
 for FILE_NAME in ${FILE_LIST}; do
-    FILE_HEADER="{-# START_FILE ${FILE_NAME} #-}"
+    FILE_HEADER="{-# START_FILE ${FILE_NAME/${PROJECT_NAME}/${PROJECT_PH}} #-}"
 
     {
     echo "${FILE_HEADER}"
@@ -63,11 +63,11 @@ for FILE_NAME in ${FILE_LIST}; do
         | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
     elif [ "${FILE_NAME}" == "LICENSE" ]; then
-        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g' "${FILE_NAME}" \
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g' "${FILE_NAME}" \
         | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
 
     else
-        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'"${LICENSE_NAME}"'@'"${LICENSE_PH}"'@g' "${FILE_NAME}" \
+        sed 's@'${PROJECT_NAME}'@'${PROJECT_PH}'@g;s@'"${COPYRIGHT_NAME}"'@'"${COPYRIGHT_PH}"'@g;s@'${GITUSER_NAME}'@'"${GITUSER_PH}"'@g;s@'"${AUTHOR_NAME}"'@'"${AUTHOR_PH}"'@g;s@'${EMAIL_NAME}'@'"${EMAIL_PH}"'@g;s@'"${LICENSE_NAME}"'@'"${LICENSE_PH}"'@g' "${FILE_NAME}" \
         | sed 's@ Date:     [0-9]*\.\S*\.20[0-9][0-9]@ Date:     '"$(date +"%d.%m.%Y")"'@'
     fi
     echo ""
