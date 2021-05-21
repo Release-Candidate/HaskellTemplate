@@ -71,6 +71,19 @@ are not included in the Stack template, because they contain Mustache fields the
 
 See also [documentation at Read the Docs](https://haskelltemplate.readthedocs.io/en/latest/contributing/#developing-testhaskell).
 
+As soon as the project ist checked in to Git, you must set the executable bit of all shell scripts, because they are not executable when generated from the templates. Run the script
+
+- [./make_sh_executable.bat](./make_sh_executable.bat) - for Windows
+- [./make_sh_executable.sh](./make_sh_executable.sh) - for Unix
+
+This script recursively calls
+
+```shell
+git add --chmod=+x SHELL_SCRIPT
+```
+
+for all shell scripts in the directory.
+
 ### Haskell and Stack
 
 You need [Stack](https://docs.haskellstack.org/en/stable/README/) to install everything else (Stack installs the GHC, the Haskell compiler too). Install that using your distributions package manager, Homebrew on Macs or Chocolatey on Windows or use another way - see [Stack - Howto Install](https://docs.haskellstack.org/en/stable/README/#how-to-install).

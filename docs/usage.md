@@ -35,6 +35,19 @@ Information on how to install Stack you find [below](#haskell-stack).
     - [.github/workflows/windows_test.yml](./.github/workflows/windows_test.yml)
     are not included in the Stack template, because they contain Mustache fields themselves and would get mangled by using `stack new`. So please download the directory [.github/workflows/](./.github/workflows/) manually.
 
+As soon as the project ist checked in to Git, you must set the executable bit of all shell scripts, because they are not executable when generated from the templates. Run the script
+
+- [./make_sh_executable.bat](https://github.com/Release-Candidate/HaskellTemplate/blob/main/make_sh_executable.bat) - for Windows
+- [./make_sh_executable.sh](https://github.com/Release-Candidate/HaskellTemplate/blob/main/make_sh_executable.sh) - for Unix
+
+This script recursively calls
+
+```shell
+git add --chmod=+x SHELL_SCRIPT
+```
+
+for all shell scripts in the directory.
+
 Before you can use the configured Tools of this project, you have to download and install the needed tools.
 
 #### Pipenv and MkDocs
