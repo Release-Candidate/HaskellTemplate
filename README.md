@@ -48,7 +48,7 @@ This template needs the following (usual) parameters to be defined:
 - github-username
 - copyright
 
-It also takes the parameter
+It also understands the parameter
 
 - license-name - to set the name of the licenses to something else but `MIT`.
 
