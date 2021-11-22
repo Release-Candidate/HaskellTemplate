@@ -9,11 +9,5 @@ cradle:
     - path: "./app/Paths_TestHaskell.hs"
       component: "TestHaskell:exe:TestHaskell-exe"
 
-    - path: "./src/Lib.hs"
-      component: "TestHaskell:exe:TestHaskell-exe"
-
-    - path: "./src/Paths_TestHaskell.hs"
-      component: "TestHaskell:exe:TestHaskell-exe"
-
     - path: "./test"
       component: "TestHaskell:test:TestHaskell-test"
