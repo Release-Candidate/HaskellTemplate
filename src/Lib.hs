@@ -10,6 +10,7 @@
 module Lib (fibN, fibBetter, fibZip, goldenRatio) where
 
 -- | Calculate a list of Fibonacci numbers of length `len`.
+--
 -- Example:
 -- >>> fibN 9
 -- [1,1,2,3,5,8,13,21,34]
@@ -26,6 +27,7 @@ fibNaive 1 = 1
 fibNaive len = fibNaive (len - 1) + fibNaive (len - 2)
 
 -- | Better version, recursively construct a list.
+--
 -- Example:
 -- >>> fibBetter 8
 -- [1,1,2,3,5,8,13,21]
@@ -45,6 +47,7 @@ fibBetter len
         _ -> []
 
 -- | Short version, using zip with the same list twice.
+--
 -- Example:
 -- >>> fibZip 10
 -- [1,1,2,3,5,8,13,21,34,55]
@@ -55,6 +58,7 @@ fibZip len = take len fibZips
     fibZips = 1 : 1 : zipWith (+) fibZips (tail fibZips)
 
 -- | Calculate the golden ratio.
+--
 -- Example:
 -- >>> goldenRatio 4
 -- 1.6180555555555556

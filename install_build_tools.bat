@@ -10,7 +10,7 @@
 pipenv install --dev
 
 :: Locally build the needed Haskell tools.
-stack install hlint hoogle implicit-hie ghcid ormolu haskell-dap ghci-dap haskell-debug-adapter
+stack install hlint hoogle implicit-hie ghcid ormolu hspec-discover haskell-dap ghci-dap haskell-debug-adapter
 :: stack build weeder
 :: stack build phoityne-vscode
 
