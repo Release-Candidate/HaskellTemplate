@@ -21,6 +21,10 @@ fibN len
   | otherwise = [fibNaive x | x <- [0 .. len - 1]]
 
 -- | Correct, but slow implementation.
+--
+-- Example:
+-- >>> fibNaive 7
+-- 21
 fibNaive :: (Eq a, Num a, Num p) => a -> p
 fibNaive 0 = 1
 fibNaive 1 = 1
