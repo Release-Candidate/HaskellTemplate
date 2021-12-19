@@ -1,4 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span id="local-6989586621679019857"></span><span class="hs-pragma">{-# LANGUAGE CPP #-}</span><span>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="highlight.js"></script>
+</head>
+
+<body>
+    <pre><span id="local-6989586621679019857"></span><span class="hs-pragma">{-# LANGUAGE CPP #-}</span><span>
 </span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE NoRebindableSyntax #-}</span><span>
 </span><span id="line-3"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-missing-import-lists #-}</span><span>
 </span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -Wno-missing-safe-haskell-mode #-}</span><span>
@@ -16,7 +26,7 @@
 #if defined(VERSION_base)
 </span><span class="hs-cpp">
 #if MIN_VERSION_base(4,0,0)
-</span><span class="hs-identifier">catchIO</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier">IO</span><span> </span><span class="hs-identifier">a</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="hs-identifier">Exception.IOException</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier">IO</span><span> </span><span class="hs-identifier">a</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier">IO</span><span> </span><span class="hs-identifier">a</span><span class="hs-cpp">
+</span><span id="local-6989586621679024092"><span class="annot"><a href="Paths_TestHaskell.html#catchIO"><span class="hs-identifier hs-type">catchIO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO</span></span><span> </span><span class="annot"><a href="#local-6989586621679024092"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Exception.IOException</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO</span></span><span> </span><span class="annot"><a href="#local-6989586621679024092"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">IO</span></span><span> </span><span class="annot"><a href="#local-6989586621679024092"><span class="hs-identifier hs-type">a</span></a></span></span><span class="hs-cpp">
 #else
 </span><span class="hs-identifier">catchIO</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier">IO</span><span> </span><span class="hs-identifier">a</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><span class="hs-identifier">Exception.Exception</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier">IO</span><span> </span><span class="hs-identifier">a</span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier">IO</span><span> </span><span class="hs-identifier">a</span><span class="hs-cpp">
 #endif
@@ -49,4 +59,7 @@
 </span><span id="line-49"></span><span class="hs-identifier">getDataFileName</span><span> </span><span class="hs-identifier">name</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-keyword">do</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-identifier">dir</span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="hs-identifier">getDataDir</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-identifier">return</span><span> </span><span class="hs-special">(</span><span class="hs-identifier">dir</span><span> </span><span class="hs-operator">++</span><span> </span><span class="hs-string">&quot;\\&quot;</span><span> </span><span class="hs-operator">++</span><span> </span><span class="hs-identifier">name</span><span class="hs-special">)</span><span>
-</span><span id="line-52"></span></pre></body></html>
+</span><span id="line-52"></span></pre>
+</body>
+
+</html>
