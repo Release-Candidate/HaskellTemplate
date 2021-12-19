@@ -5,23 +5,23 @@
 
 packages:
 - completed:
-    hackage: ghci-dap-0.0.15.0@sha256:e9ac8110590ddd00cbee62117a23ac7be6b156023d7c282eca90b36c13497583,3115
+    hackage: hpc-lcov-1.0.1@sha256:9a8247076e9f1e75e38b0e1ce558fcee743cb7aacf46e1b73c109e9326276de9,2845
     pantry-tree:
-      size: 2199
-      sha256: f73eb2fa3d84cbd0616612c66716cac1d0b46c73ce0d0ba8b4a769f6d8820d0f
+      size: 628
+      sha256: 11fdeca47b72e8c277195dbc1fd5ee8881f554492be7765c1f09dea0f43e4c17
   original:
-    hackage: ghci-dap-0.0.15.0@sha256:e9ac8110590ddd00cbee62117a23ac7be6b156023d7c282eca90b36c13497583,3115
+    hackage: hpc-lcov-1.0.1@sha256:9a8247076e9f1e75e38b0e1ce558fcee743cb7aacf46e1b73c109e9326276de9,2845
 - completed:
-    hackage: haskell-dap-0.0.15.0@sha256:d58ec48d5f23c13675ba6a6ceb75f9ad9c0b0e90031e15cf7cd227478bad5fa5,945
+    hackage: hspec-tables-0.0.1@sha256:1f38a282c1f859bdc9522f2ff7b012b58c852c97ece0235307f8d6f0f71420d2,2203
     pantry-tree:
-      size: 315
-      sha256: 4126d8e2ea49a4acbd30cad46e66068167a1a599032c0ddd8fde607f703c5a23
+      size: 389
+      sha256: e526d59cb051d3c89e57e0c2cd0bd914795b4a6f5215a9dc25e48ec8d165753e
   original:
-    hackage: haskell-dap-0.0.15.0@sha256:d58ec48d5f23c13675ba6a6ceb75f9ad9c0b0e90031e15cf7cd227478bad5fa5,945
+    hackage: hspec-tables-0.0.1@sha256:1f38a282c1f859bdc9522f2ff7b012b58c852c97ece0235307f8d6f0f71420d2,2203
 snapshots:
 - completed:
-    size: 567669
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/12.yaml
-    sha256: facf6cac73b22a83ca955b580a98a7a09ed71f8f974c7a55d28e608c23e689a9
+    size: 611909
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2021/12/19.yaml
+    sha256: 389d227c255ff7c75a51650a47c9b46aee8caddd77125c7cf1c06ee34b0189b4
   original:
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/12.yaml
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2021/12/19.yaml

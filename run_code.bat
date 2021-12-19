@@ -12,7 +12,7 @@ cd %~dp0
 echo %cd%
 
 :: Code:
-:: stack exec "C:\Users\RC\AppData\Local\Programs\Microsoft VS Code\bin\code"
+:: stack exec "%LOCALAPPDATA%\Programs\Microsoft VS Code\bin\code"
 
-:: Code Insiders:
-stack exec "%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\bin\code-insiders" TestHaskell.code-workspace
+:: Code:
+stack exec "%APPDATA%\Code-Haskell\bin\code" TestHaskell.code-workspace

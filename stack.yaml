@@ -18,7 +18,10 @@
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
 resolver:
-  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/17/12.yaml
+  #url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/19.yaml
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2021/12/19.yaml
+
+allow-newer: true
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -40,9 +43,10 @@ packages:
 # - git: https://github.com/commercialhaskell/stack.git
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
+# Not in nightly:
 extra-deps:
-  - ghci-dap-0.0.15.0@sha256:e9ac8110590ddd00cbee62117a23ac7be6b156023d7c282eca90b36c13497583,3115
-  - haskell-dap-0.0.15.0@sha256:d58ec48d5f23c13675ba6a6ceb75f9ad9c0b0e90031e15cf7cd227478bad5fa5,945
+  - hpc-lcov-1.0.1@sha256:9a8247076e9f1e75e38b0e1ce558fcee743cb7aacf46e1b73c109e9326276de9,2845
+  - hspec-tables-0.0.1@sha256:1f38a282c1f859bdc9522f2ff7b012b58c852c97ece0235307f8d6f0f71420d2,2203
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
@@ -67,3 +71,8 @@ system-ghc: false
 #
 # Allow a newer minor version of GHC than the snapshot specifies
 # compiler-check: newer-minor
+
+# Problem with Stackage and mintty 0.1.3
+#flags:
+#  mintty:
+#    Win32-2-13-1: false
