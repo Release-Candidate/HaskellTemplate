@@ -10,13 +10,21 @@
 module Lib
 
 -- | Calculate a list of Fibonacci numbers of length <tt>len</tt>.
+--   
+--   Example: &gt;&gt;&gt; fibN 9 [1,1,2,3,5,8,13,21,34]
 fibN :: (Num a, Enum a, Ord a) => a -> [a]
 
 -- | Better version, recursively construct a list.
+--   
+--   Example: &gt;&gt;&gt; fibBetter 8 [1,1,2,3,5,8,13,21]
 fibBetter :: Integer -> [Integer]
 
 -- | Short version, using zip with the same list twice.
+--   
+--   Example: &gt;&gt;&gt; fibZip 10 [1,1,2,3,5,8,13,21,34,55]
 fibZip :: Int -> [Integer]
 
 -- | Calculate the golden ratio.
+--   
+--   Example: &gt;&gt;&gt; goldenRatio 4 1.6180555555555556
 goldenRatio :: Int -> Double

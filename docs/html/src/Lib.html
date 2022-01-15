@@ -1,14 +1,4 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="highlight.js"></script>
-</head>
-
-<body>
-    <pre><span class="hs-comment">-- SPDX-License-Identifier: MIT</span><span>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- SPDX-License-Identifier: MIT</span><span>
 </span><span id="line-2"></span><span class="hs-comment">-- Copyright (C) 2021 Roland Csaszar</span><span>
 </span><span id="line-3"></span><span class="hs-comment">--</span><span>
 </span><span id="line-4"></span><span class="hs-comment">-- Project:  TestHaskell</span><span>
@@ -20,22 +10,26 @@
 </span><span id="line-10"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Lib</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Lib.html#fibN"><span class="hs-identifier">fibN</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Lib.html#fibBetter"><span class="hs-identifier">fibBetter</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Lib.html#fibZip"><span class="hs-identifier">fibZip</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><a href="Lib.html#goldenRatio"><span class="hs-identifier">goldenRatio</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-11"></span><span>
 </span><span id="line-12"></span><span class="hs-comment">-- | Calculate a list of Fibonacci numbers of length `len`.</span><span>
-</span><span id="line-13"></span><span id="local-6989586621679019811"><span class="annot"><a href="Lib.html#fibN"><span class="hs-identifier hs-type">fibN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Num</span></span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Enum</span></span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Ord</span></span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span></span><span>
-</span><span id="line-14"></span><span id="fibN"><span class="annot"><span class="annottext">fibN :: forall a. (Num a, Enum a, Ord a) =&gt; a -&gt; [a]
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Example:</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- &gt;&gt;&gt; fibN 9</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- [1,1,2,3,5,8,13,21,34]</span><span>
+</span><span id="line-17"></span><span id="local-6989586621679019811"><span class="annot"><a href="Lib.html#fibN"><span class="hs-identifier hs-type">fibN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Num</span></span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Enum</span></span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Ord</span></span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="#local-6989586621679019811"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">]</span></span><span>
+</span><span id="line-18"></span><span id="fibN"><span class="annot"><span class="annottext">fibN :: forall a. (Num a, Enum a, Ord a) =&gt; a -&gt; [a]
 </span><a href="Lib.html#fibN"><span class="hs-identifier hs-var hs-var">fibN</span></a></span></span><span> </span><span id="local-6989586621679019731"><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679019731"><span class="hs-identifier hs-var">len</span></a></span></span><span>
-</span><span id="line-15"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">a
+</span><span id="line-19"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679019731"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&lt;</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">1</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
-</span><span id="line-16"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">a
+</span><span id="line-20"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679019731"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">a -&gt; a -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">1</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">1</span></span><span class="hs-special">]</span><span>
-</span><span id="line-17"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-21"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">a -&gt; a
 forall a p. (Eq a, Num a, Num p) =&gt; a -&gt; p
 </span><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var">fibNaive</span></a></span><span> </span><span class="annot"><span class="annottext">a
@@ -46,17 +40,21 @@ forall a p. (Eq a, Num a, Num p) =&gt; a -&gt; p
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">1</span></span><span class="hs-special">]</span><span class="hs-special">]</span><span>
-</span><span id="line-18"></span><span>
-</span><span id="line-19"></span><span class="hs-comment">-- | Correct, but slow implementation.</span><span>
-</span><span id="line-20"></span><span id="local-6989586621679019805"><span id="local-6989586621679019806"><span class="annot"><a href="Lib.html#fibNaive"><span class="hs-identifier hs-type">fibNaive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679019806"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Num</span></span><span> </span><span class="annot"><a href="#local-6989586621679019806"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Num</span></span><span> </span><span class="annot"><a href="#local-6989586621679019805"><span class="hs-identifier hs-type">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679019806"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679019805"><span class="hs-identifier hs-type">p</span></a></span></span></span><span>
-</span><span id="line-21"></span><span id="fibNaive"><span class="annot"><span class="annottext">fibNaive :: forall a p. (Eq a, Num a, Num p) =&gt; a -&gt; p
+</span><span id="line-22"></span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- | Correct, but slow implementation.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Example:</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &gt;&gt;&gt; fibNaive 7</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- 21</span><span>
+</span><span id="line-28"></span><span id="local-6989586621679019805"><span id="local-6989586621679019806"><span class="annot"><a href="Lib.html#fibNaive"><span class="hs-identifier hs-type">fibNaive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Eq</span></span><span> </span><span class="annot"><a href="#local-6989586621679019806"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Num</span></span><span> </span><span class="annot"><a href="#local-6989586621679019806"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Num</span></span><span> </span><span class="annot"><a href="#local-6989586621679019805"><span class="hs-identifier hs-type">p</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679019806"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679019805"><span class="hs-identifier hs-type">p</span></a></span></span></span><span>
+</span><span id="line-29"></span><span id="fibNaive"><span class="annot"><span class="annottext">fibNaive :: forall a p. (Eq a, Num a, Num p) =&gt; a -&gt; p
 </span><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var hs-var">fibNaive</span></a></span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">0</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">p
 </span><span class="hs-number">1</span></span><span>
-</span><span id="line-22"></span><span class="annot"><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var">fibNaive</span></a></span><span> </span><span class="annot"><span class="annottext">a
+</span><span id="line-30"></span><span class="annot"><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var">fibNaive</span></a></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">1</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">p
 </span><span class="hs-number">1</span></span><span>
-</span><span id="line-23"></span><span class="annot"><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var">fibNaive</span></a></span><span> </span><span id="local-6989586621679019707"><span class="annot"><span class="annottext">a
+</span><span id="line-31"></span><span class="annot"><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var">fibNaive</span></a></span><span> </span><span id="local-6989586621679019707"><span class="annot"><span class="annottext">a
 </span><a href="#local-6989586621679019707"><span class="hs-identifier hs-var">len</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; p
 forall a p. (Eq a, Num a, Num p) =&gt; a -&gt; p
 </span><a href="Lib.html#fibNaive"><span class="hs-identifier hs-var">fibNaive</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">a
@@ -72,38 +70,42 @@ forall a p. (Eq a, Num a, Num p) =&gt; a -&gt; p
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-number">2</span></span><span class="hs-special">)</span><span>
-</span><span id="line-24"></span><span>
-</span><span id="line-25"></span><span class="hs-comment">-- | Better version, recursively construct a list.</span><span>
-</span><span id="line-26"></span><span class="annot"><a href="Lib.html#fibBetter"><span class="hs-identifier hs-type">fibBetter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
-</span><span id="line-27"></span><span id="fibBetter"><span class="annot"><span class="annottext">fibBetter :: Integer -&gt; [Integer]
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Better version, recursively construct a list.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- Example:</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &gt;&gt;&gt; fibBetter 8</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- [1,1,2,3,5,8,13,21]</span><span>
+</span><span id="line-38"></span><span class="annot"><a href="Lib.html#fibBetter"><span class="hs-identifier hs-type">fibBetter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
+</span><span id="line-39"></span><span id="fibBetter"><span class="annot"><span class="annottext">fibBetter :: Integer -&gt; [Integer]
 </span><a href="Lib.html#fibBetter"><span class="hs-identifier hs-var hs-var">fibBetter</span></a></span></span><span> </span><span id="local-6989586621679019705"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019705"><span class="hs-identifier hs-var">len</span></a></span></span><span>
-</span><span id="line-28"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span id="line-40"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019705"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Bool
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&lt;</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
-</span><span id="line-29"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><span id="line-41"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019705"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Bool
 forall a. Eq a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">]</span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; Integer -&gt; [Integer]
 </span><a href="#local-6989586621679019704"><span class="hs-identifier hs-var">fibHelper</span></a></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019705"><span class="hs-identifier hs-var">len</span></a></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="#local-6989586621679019704"><span class="hs-identifier hs-type">fibHelper</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
-</span><span id="line-33"></span><span>    </span><span id="local-6989586621679019704"><span class="annot"><span class="annottext">fibHelper :: [Integer] -&gt; Integer -&gt; [Integer]
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="#local-6989586621679019704"><span class="hs-identifier hs-type">fibHelper</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
+</span><span id="line-45"></span><span>    </span><span id="local-6989586621679019704"><span class="annot"><span class="annottext">fibHelper :: [Integer] -&gt; Integer -&gt; [Integer]
 </span><a href="#local-6989586621679019704"><span class="hs-identifier hs-var hs-var">fibHelper</span></a></span></span><span> </span><span id="local-6989586621679019703"><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019703"><span class="hs-identifier hs-var">list</span></a></span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">0</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019703"><span class="hs-identifier hs-var">list</span></a></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="#local-6989586621679019704"><span class="hs-identifier hs-var">fibHelper</span></a></span><span> </span><span id="local-6989586621679019702"><span class="annot"><span class="annottext">[Integer]
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="#local-6989586621679019704"><span class="hs-identifier hs-var">fibHelper</span></a></span><span> </span><span id="local-6989586621679019702"><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019702"><span class="hs-identifier hs-var">list</span></a></span></span><span> </span><span id="local-6989586621679019701"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019701"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-35"></span><span>      </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Int -&gt; [Integer] -&gt; [Integer]
+</span><span id="line-47"></span><span>      </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">Int -&gt; [Integer] -&gt; [Integer]
 forall a. Int -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">drop</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Integer] -&gt; Int
 forall (t :: * -&gt; *) a. Foldable t =&gt; t a -&gt; Int
@@ -113,7 +115,7 @@ forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">2</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019702"><span class="hs-identifier hs-var">list</span></a></span><span> </span><span class="hs-keyword">of</span><span>
-</span><span id="line-36"></span><span>        </span><span class="hs-special">[</span><span id="local-6989586621679019698"><span class="annot"><span class="annottext">Integer
+</span><span id="line-48"></span><span>        </span><span class="hs-special">[</span><span id="local-6989586621679019698"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019698"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679019697"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019697"><span class="hs-identifier hs-var">y</span></a></span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; Integer -&gt; [Integer]
 </span><a href="#local-6989586621679019704"><span class="hs-identifier hs-var">fibHelper</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Integer]
@@ -128,14 +130,14 @@ forall a. Num a =&gt; a -&gt; a -&gt; a
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span>
-</span><span id="line-37"></span><span>        </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; Integer -&gt; [Integer]
+</span><span id="line-49"></span><span>        </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; Integer -&gt; [Integer]
 </span><a href="#local-6989586621679019704"><span class="hs-identifier hs-var">fibHelper</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">]</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019701"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Integer -&gt; Integer
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span>
-</span><span id="line-38"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
+</span><span id="line-50"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; Integer -&gt; [Integer]
 </span><a href="#local-6989586621679019704"><span class="hs-identifier hs-var">fibHelper</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Integer
@@ -144,21 +146,25 @@ forall a. Num a =&gt; a -&gt; a -&gt; a
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-glyph hs-var">-</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span>
-</span><span id="line-39"></span><span>        </span><span class="annot"><span class="annottext">[Integer]
+</span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">[Integer]
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
-</span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span class="hs-comment">-- | Short version, using zip with the same list twice.</span><span>
-</span><span id="line-42"></span><span class="annot"><a href="Lib.html#fibZip"><span class="hs-identifier hs-type">fibZip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
-</span><span id="line-43"></span><span id="fibZip"><span class="annot"><span class="annottext">fibZip :: Int -&gt; [Integer]
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Short version, using zip with the same list twice.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Example:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- &gt;&gt;&gt; fibZip 10</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- [1,1,2,3,5,8,13,21,34,55]</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Lib.html#fibZip"><span class="hs-identifier hs-type">fibZip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span id="fibZip"><span class="annot"><span class="annottext">fibZip :: Int -&gt; [Integer]
 </span><a href="Lib.html#fibZip"><span class="hs-identifier hs-var hs-var">fibZip</span></a></span></span><span> </span><span id="local-6989586621679019696"><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019696"><span class="hs-identifier hs-var">len</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; [Integer] -&gt; [Integer]
 forall a. Int -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">take</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019696"><span class="hs-identifier hs-var">len</span></a></span><span> </span><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019694"><span class="hs-identifier hs-var">fibZips</span></a></span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="#local-6989586621679019694"><span class="hs-identifier hs-type">fibZips</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
-</span><span id="line-46"></span><span>    </span><span id="local-6989586621679019694"><span class="annot"><span class="annottext">fibZips :: [Integer]
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="#local-6989586621679019694"><span class="hs-identifier hs-type">fibZips</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>    </span><span id="local-6989586621679019694"><span class="annot"><span class="annottext">fibZips :: [Integer]
 </span><a href="#local-6989586621679019694"><span class="hs-identifier hs-var hs-var">fibZips</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-number">1</span></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; [Integer] -&gt; [Integer]
 forall a. a -&gt; [a] -&gt; [a]
@@ -175,27 +181,31 @@ forall a. Num a =&gt; a -&gt; a -&gt; a
 forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">tail</span></span><span> </span><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019694"><span class="hs-identifier hs-var">fibZips</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- | Calculate the golden ratio.</span><span>
-</span><span id="line-49"></span><span class="annot"><a href="Lib.html#goldenRatio"><span class="hs-identifier hs-type">goldenRatio</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span>
-</span><span id="line-50"></span><span id="goldenRatio"><span class="annot"><span class="annottext">goldenRatio :: Int -&gt; Double
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Calculate the golden ratio.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Example:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &gt;&gt;&gt; goldenRatio 4</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 1.6180555555555556</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Lib.html#goldenRatio"><span class="hs-identifier hs-type">goldenRatio</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span>
+</span><span id="line-70"></span><span id="goldenRatio"><span class="annot"><span class="annottext">goldenRatio :: Int -&gt; Double
 </span><a href="Lib.html#goldenRatio"><span class="hs-identifier hs-var hs-var">goldenRatio</span></a></span></span><span> </span><span id="local-6989586621679019691"><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019691"><span class="hs-identifier hs-var">numDig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Double
 </span><a href="#local-6989586621679019690"><span class="hs-identifier hs-var">goldenHelper</span></a></span><span> </span><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019691"><span class="hs-identifier hs-var">numDig</span></a></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">3</span></span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-52"></span><span>    </span><span id="local-6989586621679019687"><span class="annot"><span class="annottext">fibs :: [Integer]
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>    </span><span id="local-6989586621679019687"><span class="annot"><span class="annottext">fibs :: [Integer]
 </span><a href="#local-6989586621679019687"><span class="hs-identifier hs-var hs-var">fibs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int -&gt; [Integer]
 </span><a href="Lib.html#fibZip"><span class="hs-identifier hs-var">fibZip</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
 forall a. Bounded a =&gt; a
 </span><span class="hs-identifier hs-var">maxBound</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="#local-6989586621679019690"><span class="hs-identifier hs-type">goldenHelper</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span>
-</span><span id="line-54"></span><span>    </span><span id="local-6989586621679019690"><span class="annot"><span class="annottext">goldenHelper :: Int -&gt; Int -&gt; Double
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="#local-6989586621679019690"><span class="hs-identifier hs-type">goldenHelper</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span>
+</span><span id="line-74"></span><span>    </span><span id="local-6989586621679019690"><span class="annot"><span class="annottext">goldenHelper :: Int -&gt; Int -&gt; Double
 </span><a href="#local-6989586621679019690"><span class="hs-identifier hs-var hs-var">goldenHelper</span></a></span></span><span> </span><span id="local-6989586621679019685"><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019685"><span class="hs-identifier hs-var">numdig</span></a></span></span><span> </span><span id="local-6989586621679019684"><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019684"><span class="hs-identifier hs-var">l</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>      </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; [Integer]
+</span><span id="line-75"></span><span>      </span><span class="hs-keyword">case</span><span> </span><span class="annot"><span class="annottext">[Integer] -&gt; [Integer]
 forall a. [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">reverse</span></span><span> </span><span class="annot"><span class="annottext">([Integer] -&gt; [Integer]) -&gt; [Integer] -&gt; [Integer]
 forall a b. (a -&gt; b) -&gt; a -&gt; b
@@ -204,21 +214,21 @@ forall a. Int -&gt; [a] -&gt; [a]
 </span><span class="hs-identifier hs-var">take</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019684"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">[Integer]
 </span><a href="#local-6989586621679019687"><span class="hs-identifier hs-var">fibs</span></a></span><span> </span><span class="hs-keyword">of</span><span>
-</span><span id="line-56"></span><span>        </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span id="line-76"></span><span>        </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
 </span><span class="hs-number">0.0</span></span><span>
-</span><span id="line-57"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
+</span><span id="line-77"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-identifier">_</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
 </span><span class="hs-number">1.0</span></span><span>
-</span><span id="line-58"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
+</span><span id="line-78"></span><span>        </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-identifier">_</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Integer
 </span><span class="hs-identifier">_</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
 </span><span class="hs-number">1.0</span></span><span>
-</span><span id="line-59"></span><span>        </span><span id="local-6989586621679019682"><span class="annot"><span class="annottext">Integer
+</span><span id="line-79"></span><span>        </span><span id="local-6989586621679019682"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019682"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span> </span><span id="local-6989586621679019681"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019681"><span class="hs-identifier hs-var">y</span></a></span></span><span> </span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span> </span><span id="local-6989586621679019680"><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019680"><span class="hs-identifier hs-var">z</span></a></span></span><span> </span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span> </span><span class="annot"><span class="annottext">[Integer]
 </span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-60"></span><span>          </span><span class="hs-keyword">if</span><span> </span><span class="annot"><span class="annottext">Double -&gt; Double
+</span><span id="line-80"></span><span>          </span><span class="hs-keyword">if</span><span> </span><span class="annot"><span class="annottext">Double -&gt; Double
 forall a. Num a =&gt; a -&gt; a
 </span><span class="hs-identifier hs-var">abs</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Double
 </span><a href="#local-6989586621679019678"><span class="hs-identifier hs-var">curr</span></a></span><span> </span><span class="annot"><span class="annottext">Double -&gt; Double -&gt; Double
@@ -228,17 +238,17 @@ forall a. Num a =&gt; a -&gt; a -&gt; a
 forall a. Ord a =&gt; a -&gt; a -&gt; Bool
 </span><span class="hs-operator hs-var">&lt;</span></span><span> </span><span class="annot"><span class="annottext">Double
 </span><a href="#local-6989586621679019676"><span class="hs-identifier hs-var">epsilon</span></a></span><span>
-</span><span id="line-61"></span><span>            </span><span class="hs-keyword">then</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span id="line-81"></span><span>            </span><span class="hs-keyword">then</span><span> </span><span class="annot"><span class="annottext">Double
 </span><a href="#local-6989586621679019678"><span class="hs-identifier hs-var">curr</span></a></span><span>
-</span><span id="line-62"></span><span>            </span><span class="hs-keyword">else</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Double
+</span><span id="line-82"></span><span>            </span><span class="hs-keyword">else</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Double
 </span><a href="#local-6989586621679019690"><span class="hs-identifier hs-var">goldenHelper</span></a></span><span> </span><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019685"><span class="hs-identifier hs-var">numdig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019684"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Int -&gt; Int
 forall a. Num a =&gt; a -&gt; a -&gt; a
 </span><span class="hs-operator hs-var">+</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">1</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>          </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>            </span><span id="local-6989586621679019678"><span class="annot"><span class="annottext">Double
+</span><span id="line-83"></span><span>          </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>            </span><span id="local-6989586621679019678"><span class="annot"><span class="annottext">Double
 </span><a href="#local-6989586621679019678"><span class="hs-identifier hs-var">curr</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Double
 forall a. Num a =&gt; Integer -&gt; a
 </span><span class="hs-identifier hs-var">fromInteger</span></span><span> </span><span class="annot"><span class="annottext">Integer
@@ -248,7 +258,7 @@ forall a. Fractional a =&gt; a -&gt; a -&gt; a
 forall a. Num a =&gt; Integer -&gt; a
 </span><span class="hs-identifier hs-var">fromInteger</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019681"><span class="hs-identifier hs-var">y</span></a></span><span>
-</span><span id="line-65"></span><span>            </span><span id="local-6989586621679019677"><span class="annot"><span class="annottext">Double
+</span><span id="line-85"></span><span>            </span><span id="local-6989586621679019677"><span class="annot"><span class="annottext">Double
 </span><a href="#local-6989586621679019677"><span class="hs-identifier hs-var">before</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; Double
 forall a. Num a =&gt; Integer -&gt; a
 </span><span class="hs-identifier hs-var">fromInteger</span></span><span> </span><span class="annot"><span class="annottext">Integer
@@ -258,15 +268,12 @@ forall a. Fractional a =&gt; a -&gt; a -&gt; a
 forall a. Num a =&gt; Integer -&gt; a
 </span><span class="hs-identifier hs-var">fromInteger</span></span><span> </span><span class="annot"><span class="annottext">Integer
 </span><a href="#local-6989586621679019680"><span class="hs-identifier hs-var">z</span></a></span><span>
-</span><span id="line-66"></span><span>            </span><span id="local-6989586621679019676"><span class="annot"><span class="annottext">epsilon :: Double
+</span><span id="line-86"></span><span>            </span><span id="local-6989586621679019676"><span class="annot"><span class="annottext">epsilon :: Double
 </span><a href="#local-6989586621679019676"><span class="hs-identifier hs-var hs-var">epsilon</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
 </span><span class="hs-number">10.0</span></span><span> </span><span class="annot"><span class="annottext">Double -&gt; Double -&gt; Double
 forall a. Floating a =&gt; a -&gt; a -&gt; a
-</span><span class="hs-operator hs-var">**</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">-</span><span> </span><span class="annot"><span class="annottext">Int -&gt; Double
+</span><span class="hs-operator hs-var">**</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">-</span><span class="annot"><span class="annottext">Int -&gt; Double
 forall a b. (Integral a, Num b) =&gt; a -&gt; b
 </span><span class="hs-identifier hs-var">fromIntegral</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><a href="#local-6989586621679019685"><span class="hs-identifier hs-var">numdig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span></pre>
-</body>
-
-</html>
+</span><span id="line-87"></span></pre></body></html>

@@ -8,7 +8,7 @@
 		"haskell.hlint.executablePath": "hlint",
 		"ormolu.executablePath": "ormolu",
 		"ghcid.command": "ghcid",
-		"coverage-gutters.coverageReportFileName": "lcov.info",
+		"coverage-gutters.coverageReportFileName": "coverage.json",
 		"files.trimFinalNewlines": true,
 		"files.trimTrailingWhitespace": true,
 		"FSharp.suggestGitignore": false

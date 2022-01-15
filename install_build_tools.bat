@@ -10,9 +10,10 @@
 pipenv install --dev
 
 :: Locally build the needed Haskell tools.
-stack install hlint hoogle implicit-hie ghcid ormolu hspec-discover haskell-dap ghci-dap haskell-debug-adapter
+stack install hlint hoogle haddock implicit-hie ghcid ormolu hspec-discover
+:: haskell-dap ghci-dap haskell-debug-adapter
 :: stack build weeder
-:: stack build phoityne-vscode
+
 
 echo Don't forget to add the directory that is mentioned in 'Copied executables to'
 echo to your PATH or use 'stack exec TOOL'
